@@ -125,14 +125,23 @@
   }
   .ticket.coming-soon .btn-buy{ filter: grayscale(1); opacity:.45; pointer-events:none; cursor:not-allowed; }
 
+  /* Image area: all images are clipped inside this frame on every screen size. */
   .ticket-media{
-    position: relative; width:100%; aspect-ratio: 4/3;
-    background: var(--wood-2); overflow:hidden;
-    border-bottom: 1px solid var(--gold-dim);
-    padding: 8px;
+    position:relative; isolation:isolate; width:100%; min-width:0;
+    aspect-ratio:4 / 3; overflow:hidden; box-sizing:border-box;
+    background:var(--wood-2); border-bottom:1px solid var(--gold-dim);
+    padding:8px;
   }
-  .ticket-media-inner{ position:relative; width:100%; height:100%; border: 1px solid var(--gold-dim); overflow:hidden; }
-  .ticket-media img{ width:100%; height:100%; object-fit: contain; display:block; filter: saturate(1.05) contrast(1.03); }
+  .ticket-media-inner{
+    position:relative; width:100%; height:100%; min-width:0; min-height:0;
+    overflow:hidden; box-sizing:border-box; border:1px solid var(--gold-dim);
+    background:#0b0d0e;
+  }
+  .ticket-media img{
+    display:block; width:100%!important; height:100%!important;
+    min-width:0; max-width:100%; min-height:0; max-height:100%;
+    object-fit:cover; object-position:center; filter:saturate(1.05) contrast(1.03);
+  }
   .ticket.coming-soon .ticket-media img{ filter: saturate(0) contrast(1) brightness(0.95); }
 
   .status-pill{
@@ -277,7 +286,7 @@
       // ลิงก์ปุ่ม Buy ของ Early Supporter
       buyUrl: 'https://medieval-rp-thai.tebex.store',
       status: 'On Sale', statusBg: '#e0be6f', statusInk: '#241a0f',
-      image: 'assets/gifts/0.png',
+      image: 'https://i.postimg.cc/JzjSsnfw/New-Project-(6).png',
       description: 'ผู้สนับสนุนช่วงแรกจะได้รับบทบาท Discord "Early Supporter" และสิทธิ์คิวลำดับความสำคัญระดับ Diamond เป็นเวลา 2 เดือนแพ็กเกจนี้จะไม่สามารถซื้อได้อีกหลังจากเซิร์ฟเวอร์เปิดให้บริการ**สิ่งนี้ไม่ได้ให้สิทธิ์ WHITELIST เพื่อเข้าเซิร์ฟเวอร์** - จะเป็นเพียงการเพิ่มลำดับความสำคัญในคิวของคุณ และมอบบทบาทใน Discord เท่านั้นรายได้ทั้งหมดจะถูกนำกลับไปลงทุนในเซิร์ฟเวอร์ ได้แก่ การสนับสนุนสคริปต์ การว่าจ้างนักพัฒนา การปรับปรุงอย่างต่อเนื่อง และการสนับสนุนทีมงานหากมีการขอคืนเงิน สิทธิ์ลำดับความสำคัญในคิวจะถูกยกเลิกหากคุณดำเนินการเรียกเงินคืนผ่านผู้ให้บริการชำระเงิน (chargeback) เราขอสงวนสิทธิ์ในการแบนคุณออกจากชุมชน'
     },
     {
@@ -286,7 +295,7 @@
       buyUrl: 'https://medieval-rp-thai.tebex.store',
       // สถานะ: 'Coming Soon' = ยังไม่ขาย | 'On Sale' = พร้อมขาย
       status: 'Coming Soon', statusBg: '#E4E1D8', statusInk: '#241a0f',
-      image: 'assets/gifts/1.png',
+      image: 'https://img1.pic.in.th/images/1158b637a565d663b.png',
       description: giftCardDesc
     },
     {
@@ -294,7 +303,7 @@
       buyUrl: 'https://medieval-rp-thai.tebex.store',
       // สถานะ: 'Coming Soon' = ยังไม่ขาย | 'On Sale' = พร้อมขาย
       status: 'Coming Soon', statusBg: '#E4E1D8', statusInk: '#241a0f',
-      image: 'assets/gifts/2.png',
+      image: 'https://img2.pic.in.th/2b28386f7faecbfe0.png',
       description: giftCardDesc
     },
     {
@@ -302,7 +311,7 @@
       buyUrl: 'https://medieval-rp-thai.tebex.store',
       // สถานะ: 'Coming Soon' = ยังไม่ขาย | 'On Sale' = พร้อมขาย
       status: 'Coming Soon', statusBg: '#E4E1D8', statusInk: '#241a0f',
-      image: 'assets/gifts/3.png',
+      image: 'https://img2.pic.in.th/39ad6501a5825059b.png',
       description: giftCardDesc
     },
     {
@@ -310,7 +319,7 @@
       buyUrl: 'https://medieval-rp-thai.tebex.store',
       // สถานะ: 'Coming Soon' = ยังไม่ขาย | 'On Sale' = พร้อมขาย
       status: 'Coming Soon', statusBg: '#E4E1D8', statusInk: '#241a0f',
-      image: 'assets/gifts/4.png',
+      image: 'https://img1.pic.in.th/images/4a75496ac5c40f503.png',
       description: giftCardDesc
     },
     {
@@ -318,7 +327,7 @@
       buyUrl: 'https://medieval-rp-thai.tebex.store',
       // สถานะ: 'Coming Soon' = ยังไม่ขาย | 'On Sale' = พร้อมขาย
       status: 'Coming Soon', statusBg: '#E4E1D8', statusInk: '#241a0f',
-      image: 'assets/gifts/5.png',
+      image: 'https://img2.pic.in.th/50aa6f1c8f193fddd.png',
       description: giftCardDesc
     }
   ];
