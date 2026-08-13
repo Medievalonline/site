@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Medieval Online TH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cinzel+Decorative:wght@700&family=Noto+Serif+Thai:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --stone:#14100c;
+    --wood:#2b2015;
+    --wood-2:#1c140d;
+    --wood-light:#3d2c1c;
+    --parchment:#e8d9b3;
+    --parchment-ink:#3a2c1a;
+    --gold:#b8892b;
+    --gold-light:#e0be6f;
+    --gold-dim:#8a6520;
+    --gem:#7a1f1f;
+    --gem-light:#d24b4b;
+    --cream:#f0e4c6;
+    --dim:#c2ac82;
+    --radius: 4px;
+    --display: 'Cinzel', 'Noto Serif Thai', serif;
+    --display-deco: 'Cinzel Decorative', 'Noto Serif Thai', serif;
+    --body: 'Noto Serif Thai', serif;
+    --mono: 'Space Mono', monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: transparent;
+    color: var(--cream);
+    font-family: var(--body);
+    min-height:100vh;
+    display:flex; align-items:center; justify-content:center;
+    padding: 40px 16px;
+  }
+  a{color:inherit; text-decoration:none;}
+
+  .stage{ width:100%; max-width: 340px; }
+
+  /* ================= GEM CORNERS ================= */
+  .gem{
+    position:absolute;width:13px;height:13px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, var(--gem-light), var(--gem) 65%, #2e0d0d 100%);
+    border:1px solid var(--gold);
+    box-shadow:0 0 5px rgba(210,75,75,.55);
+    z-index:3;
+  }
+  .gem.tl{top:-6px;left:-6px;} .gem.tr{top:-6px;right:-6px;}
+  .gem.bl{bottom:-6px;left:-6px;} .gem.br{bottom:-6px;right:-6px;}
+
+  .ticket{
+    position: relative; width:100%;
+    background: linear-gradient(180deg, var(--wood), var(--wood-2));
+    border: 1px solid var(--gold-dim);
+    border-radius: var(--radius);
+    overflow: visible;
+    box-shadow: 0 10px 26px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.04);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .ticket:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(0,0,0,.6), 0 0 0 1px rgba(184,137,43,.3), 0 0 18px rgba(224,190,111,.25);
+    border-color: var(--gold-light);
+  }
+
+  .ticket-media{
+    position: relative; width:100%; aspect-ratio: 4/3;
+    background: var(--wood-2); overflow:hidden;
+    border-bottom: 1px solid var(--gold-dim);
+    padding: 8px;
+  }
+  .ticket-media-inner{
+    position:relative; width:100%; height:100%;
+    border: 1px solid var(--gold-dim); overflow:hidden;
+  }
+  .ticket-media img{ width:100%; height:100%; object-fit: cover; display:block; filter: saturate(1.05) contrast(1.03); }
+
+  .status-pill{
+    position:absolute; top:14px; left:14px; z-index:2;
+    font-family: var(--display); font-size: 10.5px; letter-spacing: 1px; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 999px;
+    background: linear-gradient(180deg, var(--status-bg,var(--gold-light)), var(--gold-dim));
+    color: var(--status-ink, #241a0f);
+    border: 1px solid rgba(0,0,0,.35);
+    box-shadow: 0 2px 6px rgba(0,0,0,.4);
+  }
+
+  .tear{
+    position: relative; height: 0;
+    border-top: 1px dashed var(--gold-dim);
+    margin: 0 22px;
+  }
+  .tear::before, .tear::after{
+    content:""; position:absolute; top:-7px; width:14px; height:14px;
+    border-radius:50%; background: var(--stone);
+    box-shadow: 0 0 0 1px var(--gold-dim) inset;
+  }
+  .tear::before{ left: -31px; } .tear::after{ right: -31px; }
+
+  .ticket-body{ padding: 20px 22px 22px; display:flex; flex-direction:column; gap:8px; position:relative; }
+  .ticket-body::before{
+    content:""; position:absolute; inset:6px 8px;
+    border:1px solid rgba(184,137,43,.15); pointer-events:none;
+  }
+
+  .team-row{ display:flex; align-items:center; gap:10px; }
+  .team-badge{
+    width:28px; height:28px; border-radius:50%; flex:none;
+    background: radial-gradient(circle at 35% 30%, var(--gold-light), var(--gold-dim) 70%);
+    color: #241a0f;
+    border: 2px solid var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    font-family: var(--display); font-size:13px; font-weight:700;
+    box-shadow: 0 0 0 2px rgba(0,0,0,.35);
+  }
+  .team-name{ font-family: var(--display); font-size: 11px; color: var(--dim); text-transform: uppercase; letter-spacing: 1.5px; }
+  .ticket-title{
+    font-family: var(--display-deco); font-size: 22px; font-weight:700;
+    text-transform: uppercase; margin: 4px 0 6px; letter-spacing: 0.3px;
+    color: var(--gold-light); text-shadow: 0 2px 0 rgba(0,0,0,.4);
+  }
+  .price-row{ display:flex; align-items: baseline; justify-content: space-between; margin-top: 2px; }
+  .price{ font-family: var(--mono); font-size: 21px; font-weight:700; color: var(--gold-light); }
+  .price .cur{ color: var(--dim); font-size: 14px; margin-right:2px; }
+
+  .btn-row{ display:flex; gap:10px; margin-top: 16px; }
+
+  /* Buy — chevron banner button, mirrors the arrow-bar menu items in the reference art */
+  .btn-buy{
+    position:relative; flex:1.3;
+    display:flex; align-items:center; justify-content:center; gap:6px;
+    height:40px;
+    background: linear-gradient(180deg, #6b4a26, #452c16 55%, #38220f);
+    border: 1px solid var(--gold-dim);
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%, 14px 50%);
+    color: var(--cream);
+    font-family: var(--display); font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
+    cursor:pointer; transition: filter .15s ease;
+  }
+  .btn-buy:hover{ filter: brightness(1.25); }
+  .btn-buy:active{ filter: brightness(0.95); }
+
+  /* Details — quiet parchment-outline secondary */
+  .btn-outline{
+    flex:1;
+    background: transparent; color: var(--dim);
+    border: 1px solid var(--gold-dim); border-radius: var(--radius);
+    font-family: var(--body); font-weight:600; font-size: 13px;
+    padding: 10px 12px; cursor:pointer; transition: background .15s ease, color .15s ease;
+  }
+  .btn-outline:hover{ background: rgba(184,137,43,.12); color: var(--gold-light); }
+
+  /* ---------- Details modal ---------- */
+  .overlay{
+    position: fixed; inset:0; background: rgba(10,8,5,0.7);
+    display:none; align-items:center; justify-content:center; z-index: 50; padding: 20px;
+  }
+  .overlay.open{ display:flex; }
+  .modal-frame{
+    position:relative; width: 100%; max-width: 380px;
+    background: linear-gradient(180deg, var(--wood), var(--wood-2));
+    border: 1px solid var(--gold-dim);
+    padding: 8px;
+    box-shadow: 0 16px 40px rgba(0,0,0,.6);
+  }
+  .modal{
+    position:relative;
+    border: 1px solid var(--gold-dim);
+    padding: 24px; max-height: 80vh; overflow:auto;
+  }
+  .modal-eyebrow{ font-family: var(--display); font-size:10.5px; letter-spacing:1.5px; color: var(--dim); text-transform:uppercase; }
+  .modal h2{ font-family: var(--display-deco); text-transform: uppercase; margin:8px 0 14px; font-size:22px; color: var(--gold-light); }
+  .modal .price{ display:block; margin: 6px 0 18px; }
+  .modal p.desc{ color: var(--dim); font-size: 13.5px; line-height:1.75; margin: 0 0 20px; }
+  .modal .btn-outline{ width:100%; }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="ticket">
+    <span class="gem tl"></span><span class="gem tr"></span><span class="gem bl"></span><span class="gem br"></span>
+    <div class="ticket-media">
+      <div class="ticket-media-inner">
+        <img id="ticketImg" src="" alt="Season Ticket">
+      </div>
+      <span class="status-pill" id="statusPill"></span>
+    </div>
+
+    <div class="tear"></div>
+
+    <div class="ticket-body">
+      <div class="team-row">
+        <div class="team-badge" id="teamBadge"></div>
+        <div class="team-name" id="teamName"></div>
+      </div>
+      <div class="ticket-title" id="ticketTitle"></div>
+      <div class="price-row">
+        <div class="price"><span class="cur">$</span><span id="ticketPrice"></span></div>
+      </div>
+
+      <div class="btn-row">
+        <a class="btn-buy" id="buyBtn" href="https://medieval-rp-thai.tebex.store" target="_blank" rel="noopener">
+          Buy
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <button class="btn-outline" id="viewDetailsBtn">ดูรายละเอียด</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Details modal -->
+<div class="overlay" id="overlay">
+  <div class="modal-frame">
+    <span class="gem tl"></span><span class="gem tr"></span><span class="gem bl"></span><span class="gem br"></span>
+    <div class="modal">
+      <div class="modal-eyebrow" id="modalTeam"></div>
+      <h2 id="modalTitle"></h2>
+      <span class="price" id="modalPrice"></span>
+      <p class="desc" id="modalDesc"></p>
+      <button class="btn-outline" id="closeModal">ปิด</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ---- Product data — change the image by editing the `image` link below ----
+  const ticket = {
+    team: 'Early Supporter',
+    title: 'Early Supporter',
+    price: 20.00,
+    status: 'On Sale',      // <-- change this text anytime
+    statusBg: '#e0be6f',        // <-- background color of the status pill
+    statusInk: '#241a0f',       // <-- text color of the status pill
+    image: 'https://i.postimg.cc/JzjSsnfw/New-Project-(6).png',
+    description: 'ผู้สนับสนุนช่วงแรกจะได้รับบทบาท Discord "Early Supporter" และสิทธิ์คิวลำดับความสำคัญระดับ Diamond เป็นเวลา 2 เดือนแพ็กเกจนี้จะไม่สามารถซื้อได้อีกหลังจากเซิร์ฟเวอร์เปิดให้บริการ**สิ่งนี้ไม่ได้ให้สิทธิ์ WHITELIST เพื่อเข้าเซิร์ฟเวอร์** - จะเป็นเพียงการเพิ่มลำดับความสำคัญในคิวของคุณ และมอบบทบาทใน Discord เท่านั้นรายได้ทั้งหมดจะถูกนำกลับไปลงทุนในเซิร์ฟเวอร์ ได้แก่ การสนับสนุนสคริปต์ การว่าจ้างนักพัฒนา การปรับปรุงอย่างต่อเนื่อง และการสนับสนุนทีมงานหากมีการขอคืนเงิน สิทธิ์ลำดับความสำคัญในคิวจะถูกยกเลิกหากคุณดำเนินการเรียกเงินคืนผ่านผู้ให้บริการชำระเงิน (chargeback) เราขอสงวนสิทธิ์ในการแบนคุณออกจากชุมชน'
+  };
+
+  function fmtNumber(n){ return Number(n).toLocaleString('th-TH'); }
+
+  document.getElementById('ticketImg').src = ticket.image;
+  document.getElementById('ticketImg').onerror = function(){
+    this.src = 'https://placehold.co/400x300/2b2015/e0be6f?text=Season+Ticket';
+  };
+  document.documentElement.style.setProperty('--status-bg', ticket.statusBg);
+  document.documentElement.style.setProperty('--status-ink', ticket.statusInk);
+  document.getElementById('statusPill').textContent = ticket.status;
+  document.getElementById('teamBadge').textContent = ticket.team.trim().charAt(0).toUpperCase();
+  document.getElementById('teamName').textContent = ticket.team;
+  document.getElementById('ticketTitle').textContent = ticket.title;
+  document.getElementById('ticketPrice').textContent = fmtNumber(ticket.price);
+
+  const overlay = document.getElementById('overlay');
+  document.getElementById('viewDetailsBtn').addEventListener('click', ()=>{
+    document.getElementById('modalTeam').textContent = ticket.team;
+    document.getElementById('modalTitle').textContent = ticket.title;
+    document.getElementById('modalPrice').textContent = '$' + fmtNumber(ticket.price);
+    document.getElementById('modalDesc').textContent = ticket.description || '';
+    overlay.classList.add('open');
+  });
+  document.getElementById('closeModal').addEventListener('click', ()=> overlay.classList.remove('open'));
+  overlay.addEventListener('click', (e)=>{ if(e.target === overlay) overlay.classList.remove('open'); });
+</script>
+</body>
+</html>

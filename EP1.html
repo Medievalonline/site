@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TEST | Medieval Online TH - เนื้อเรื่อง EP 1</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cinzel+Decorative:wght@700&family=Noto+Serif+Thai:wght@400;500;600;700&display=swap');
+:root{
+  --wood-dark:#241a10; --wood:#3a2814; --wood-light:#5a3f22;
+  --gold:#c9a35c; --gold-bright:#e8c983; --gold-dim:#8a6a3a;
+  --parchment:#e9d9b3; --parchment-dark:#d8c497;
+  --ink:#3b2b18; --ink-soft:#5a4630;
+  --red:#7a2020; --red-bright:#9c2c2c;
+  --shadow: 0 10px 30px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+body{margin:0}
+.mo-wrap{
+  font-family:'Noto Serif Thai', Georgia, serif;
+  font-size:18px; line-height:1.7; color:var(--ink);
+  background:
+    radial-gradient(900px 500px at 15% -20%, #2a1c0f 0%, transparent 60%),
+    linear-gradient(180deg, #1c130a, #14100a 100%);
+  padding:28px 14px 46px;
+  border-radius:12px;
+}
+.mo-wrap img{max-width:100%; display:block}
+.mo-wrap a{color:var(--red-bright); text-decoration:underline}
+.mo-wrap a:hover{color:var(--red)}
+.mo-page-title{
+  font-family:'Noto Serif Thai','Cinzel',serif;
+  color:var(--gold-bright);
+  font-size:clamp(1.5rem,3.4vw,2.2rem);
+  text-align:center; margin:0 0 22px;
+  text-shadow:0 2px 10px rgba(0,0,0,.6);
+}
+.mo-page-title small{
+  display:block; font-family:'Noto Serif Thai',serif; font-size:.58rem;
+  letter-spacing:.3em; color:var(--gold-dim); margin-top:8px; text-transform:uppercase;
+}
+.mo-hero{
+  border-radius:10px; overflow:hidden; margin:0 0 24px;
+  border:3px solid var(--wood-light); box-shadow:var(--shadow);
+  outline:1px solid var(--gold-dim); outline-offset:-6px;
+  max-width:900px; margin-left:auto; margin-right:auto;
+}
+.mo-frame{
+  max-width:900px; margin:0 auto;
+  background:linear-gradient(180deg, var(--parchment), var(--parchment-dark));
+  border-radius:10px; padding:2px; box-shadow:var(--shadow);
+  position:relative;
+}
+.mo-frame-inner{
+  border-radius:8px; border:3px solid var(--wood-light);
+  outline:1px solid var(--gold-dim); outline-offset:-7px;
+  padding:30px clamp(16px,4vw,44px); position:relative;
+}
+.mo-corner{position:absolute; width:24px; height:24px; border:2px solid var(--gold); opacity:.85}
+.mo-corner.tl{top:7px;left:7px;border-right:none;border-bottom:none}
+.mo-corner.tr{top:7px;right:7px;border-left:none;border-bottom:none}
+.mo-corner.bl{bottom:7px;left:7px;border-right:none;border-top:none}
+.mo-corner.br{bottom:7px;right:7px;border-left:none;border-top:none}
+.mo-body h1,.mo-body h2,.mo-body h3{
+  font-family:'Noto Serif Thai',serif; color:var(--red); letter-spacing:.02em;
+  margin:1.5em 0 .55em; border-bottom:2px solid var(--gold-dim); padding-bottom:.3em;
+}
+.mo-body h1{font-size:1.4rem}
+.mo-body h2{font-size:1.22rem}
+.mo-body h3{font-size:1.05rem}
+.mo-body p{margin:0 0 1.05em}
+.mo-body ul{margin:0 0 1.1em; padding-left:1.3em}
+.mo-body li{margin:0 0 .5em}
+.mo-body strong,.mo-body b{color:var(--red)}
+.mo-body img{
+  margin:1.3em auto; border-radius:6px;
+  border:3px solid var(--wood-light);
+  outline:1px solid var(--gold-dim); outline-offset:-6px;
+  box-shadow:var(--shadow);
+}
+.mo-body .forbid{color:var(--red); font-weight:600}
+@media (max-width:640px){
+  .mo-frame-inner{padding:20px 14px}
+}
+
+/* ===== Google Drive Video : 16:9 ===== */
+.mo-video{
+  max-width:900px;
+  margin:28px auto 0;
+}
+.mo-video-frame{
+  position:relative;
+  width:100%;
+  aspect-ratio:16 / 9;
+  overflow:hidden;
+  background:#080604;
+  border:3px solid var(--wood-light);
+  border-radius:10px;
+  outline:1px solid var(--gold-dim);
+  outline-offset:-6px;
+  box-shadow:var(--shadow);
+}
+.mo-video-frame iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+  display:block;
+  background:#000;
+}
+.mo-video-title{
+  margin:0 0 10px;
+  text-align:center;
+  color:var(--gold-bright);
+  font-family:'Noto Serif Thai',serif;
+  font-size:1rem;
+  font-weight:600;
+}
+.mo-video-note{
+  margin:9px 0 0;
+  text-align:center;
+  color:var(--gold-dim);
+  font-size:.72rem;
+  line-height:1.6;
+}
+@media (max-width:640px){
+  .mo-video{margin-top:22px}
+  .mo-video-title{font-size:.9rem}
+}
+
+</style>
+</head>
+<body>
+<div class="mo-wrap">
+  <h1 class="mo-page-title">เนื้อเรื่อง EP 1<small>Medieval Online RP &middot; Thailand</small></h1>
+  <div class="mo-hero"><img src="https://lh3.googleusercontent.com/sitesv/AG8ngQV_44JWha854yPxSe1CtjnEwtGj9bRfj5nhSlhlKLiLD3KeXUTzN9FJlW8UnbT2WYi8j_itAyA28ci3amh6QtbUBMoN0Dl3wRmn6NGs8bA0wUAMYtkfrO1nhNKKHdif5e_OFAM2SsGdZxOs4-8KONLIFMPP_rt2wcwhkpy0_b27rEOl2BYYSYn-BDFsDmi4pBkuEzOj6-RL7-coDvjbfGY4612gOMAAoasYGQqe=w1280" alt=""></div>
+  <div class="mo-frame">
+    <div class="mo-frame-inner">
+      <span class="mo-corner tl"></span><span class="mo-corner tr"></span>
+      <span class="mo-corner bl"></span><span class="mo-corner br"></span>
+      <div class="mo-body">
+<h2>ผู้พิทักษ์กระดูกแห่งสายลมวิญญาณ (The Bonewarden of The Wraithwind)</h2>
+<p>ตำนานที่เล่าขานโดยเหล่าผู้กล้า เรื่องกระซิบจากปากนักเดินทาง และสัจจะวาจาจากผู้ที่ได้เห็นสิ่งที่ไม่ควรเห็น...</p>
+<p>นานมาแล้วก่อนที่อาณาจักรต่าง ๆ จะก่อตั้ง ก่อนที่จะมีเส้นทางตัดผ่านผืนป่าดงดิบ พายุลูกหนึ่งได้อุบัติขึ้น มันไม่ใช่พายุตามธรรมชาติ แต่เป็นคำสาปแช่งอันดุร้าย กลุ่มเมฆสีดำทมิฬแยกเขี้ยวคำรามราวกับหมาป่า สายฟ้าฟาดลงมาเป็นลวดลายคล้ายอักขระโบราณ และสายลมพัดพาสุ้มเสียงของเหล่าฮีโร่ผู้ล่วงลับที่ถูกมันกลืนกิน มันพัดถล่มหุบเขาและกลืนกินขุนเขาไปทั้งลูก ไม่มีสิ่งใดต้านทานมันได้เลย</p>
+<p>ไม่มีสิ่งใด... ยกเว้นเขาเพียงคนเดียว</p>
+<p>เรื่องเล่าขานขนานนามเขาว่า "มอร์เวน ผู้พิทักษ์กระดูก" (Morvain the Bonewarden) แม้จะไม่มีใครรู้ว่านั่นคือชื่อจริงของเขาหรือไม่ เขาเป็นเพียงนักรบไร้ยศถาบรรดาศักดิ์ คนพเนจรโดดเดี่ยวในชุดเกาะเก่าคร่ำคร่าและดาบเหล็กธรรมดาเล่มหนึ่งทว่าเมื่อพายุทมิฬเคลื่อนลงมาถล่มโลก กลับมีเพียงเขาที่ก้าวออกไปท้าทายมัน หลายคนบอกว่ามันคือโชคชะตา บางคนก็ว่าเขาคือเทพเจ้าในร่างมนุษย์</p>
+<p>ไม่มีใครรู้ว่าข้อตกลงในวันนั้นคืออะไร บางคนบอกว่าเขาขายวิญญาณ บางคนบอกว่าเขาต่อสู้กับอสูรกายแห่งพายุที่ก่อตัวขึ้นจากสายฟ้าและน้ำแข็ง แต่ไม่ว่าความจริงจะเป็นอย่างไร เขาคือคนที่กักขังพายุนั้นไว้</p>
+<p>และนั่นคือวันที่พายุอันบ้าคลั่งสงบลง</p>
+<p>จนถึงตอนนี้ พายุลูกนั้นยังคงม้วนตัว ส่งเสียงคำรามและเดือดพล่านอยู่ตรงชายขอบ พยายามอย่างบ้าคลั่งที่จะพังทลายออกมา แต่มีบางสิ่ง... หรือใครบางคน... กำลังรั้งมันไว้</p>
+<p>เพราะถึงแม้ มอร์เวน จะสิ้นชีพในสถานที่แห่งนั้นไปแล้ว แต่หน้าที่ของเขายังคงอยู่</p>
+<p>เนื้อหนังของเขาเน่าเปื่อยไปนานแล้ว เหลือเพียงโครงกระดูกที่ถูกแช่แข็งอยู่ภายในชุดเกาะโบราณ นั่งนิ่งไม่ไหวติงทำหน้าที่เฝ้ายาม สายลมแรงทำร้ายเขาอย่างไม่มีวันสิ้นสุด ทั้งฉีกทึ้งผ้าคลุมและพัดผ่านทะลุซี่โครงของเขา ทว่ากระดูกเหล่านั้นกลับไม่ยอมล้มลง น้ำแข็งเกาะกุมร่างเขาไว้ราวกับเกราะศักดิ์สิทธิ์ เบ้าตาอันว่างเปล่าจ้องมองไปยังเส้นขอบฟ้าสีดำที่กำลังบ้าคลั่งอย่างชั่วนิรันดร์</p>
+<p>นักเดินทางที่หลงเข้าไปใกล้สาบานว่า พวกเขาเห็นหัวกะโหลกนั้นขยับหันตามเล็กน้อย ราวกับกำลังเฝ้ามองพายุและท้าทายไม่ให้มันก้าวข้ามมา</p>
+<p>พายุจึงยังคงถูกสกัดไว้ตราบจนทุกวันนี้</p>
+<p>ตราบเท่าที่ผู้พิทักษ์กระดูกยังคงยืนหยัด พายุจะไม่สามารถข้ามผ่านไปได้ กระดูกของเขาแผ่พลังงานอันบริสุทธิ์ออกมา ยึดโยงเข้ากับชุดเกาะ ดาบ และคำสัตย์ปฏิญาณสุดท้ายของเขา</p>
+<p>เหล่านักขับลำนำร้องเพลงเอาไว้ว่า:</p>
+<p><em>"เขาเผชิญหน้าสายลมวิญญาณ สิ่งที่ไม่มีใครกล้าท้าทาย<br>มอร์เวนยืนหยัดอย่างมั่นคง ในยามที่คนอื่นยอมสยบ<br>บัดนี้เหลือเพียงร่างกระดูกเฝ้ายาม ในจุดที่พายุเริ่มอ่อนกำลัง<br>เขาจึงยังคงทำหน้าที่รักษาการณ์ ในจุดที่ทุกคนยอมแพ้พ่าย"</em></p>
+<p>และในคืนฤดูหนาวอันโหดร้าย ยามที่เสียงฟ้าร้องครืนครั่นราวกับเสียงร่ำไห้ของเทพเจ้าที่กำลังจะตาย ชาวบ้านจะกระซิบกระซาบกันว่า:</p>
+<h3>"ผู้พิทักษ์กระดูกยังคงยืนหยัดอยู่... ขอภาวนาอย่าให้เขาโค่นลงเลย"</h3>
+<img src="https://lh3.googleusercontent.com/sitesv/AG8ngQVspktoX4wpTRNBHamsOW1l28YENxBy6IUjJ7Mbq082oz4xJSj6ftvJgWw-8g3uImIjSm-lysRCGdXk47Tjp6zcHfide4DeBopRiLW2OefcVmp2N08JMk1Tx9j4-1947djWtOQRpkd7NLmFLavGD_G-1cnH9pIZyQgoCJMKsZm8zbmoYONYFlr7yBqACfL_PcJf9uFX0pglgC6cir4Jz6n-ZTDOxDgOEVWdnCB22nQ=w1280" alt="">
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== VIDEO EP.1 : Google Drive /preview ===== -->
+  <section class="mo-video" aria-label="วิดีโอเนื้อเรื่อง EP.1">
+    <h2 class="mo-video-title">วิดีโอเนื้อเรื่อง EP.1</h2>
+    <div class="mo-video-frame">
+      <iframe
+        id="driveVideo"
+        title="วิดีโอเนื้อเรื่อง EP.1"
+        src="https://drive.google.com/file/d/1o8Z6-cGKp3aeVkALyb-8PDKdmXPV7rI-/preview"
+        allow="autoplay; fullscreen; picture-in-picture"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="mo-video-note">Medieval Online RP · Thailand</div>
+  </section>
+
+
+</div>
+</body>
+</html>

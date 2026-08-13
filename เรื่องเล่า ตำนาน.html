@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TEST | Medieval Online TH - เรื่องเล่า ตำนาน</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cinzel+Decorative:wght@700&family=Noto+Serif+Thai:wght@400;500;600;700&display=swap');
+:root{
+  --wood-dark:#241a10; --wood:#3a2814; --wood-light:#5a3f22;
+  --gold:#c9a35c; --gold-bright:#e8c983; --gold-dim:#8a6a3a;
+  --parchment:#e9d9b3; --parchment-dark:#d8c497;
+  --ink:#3b2b18; --ink-soft:#5a4630;
+  --red:#7a2020; --red-bright:#9c2c2c;
+  --shadow: 0 10px 30px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+body{margin:0}
+.mo-wrap{
+  font-family:'Noto Serif Thai', Georgia, serif;
+  font-size:18px; line-height:1.7; color:var(--ink);
+  background:
+    radial-gradient(900px 500px at 15% -20%, #2a1c0f 0%, transparent 60%),
+    linear-gradient(180deg, #1c130a, #14100a 100%);
+  padding:28px 14px 46px;
+  border-radius:12px;
+}
+.mo-wrap img{max-width:100%; display:block}
+.mo-wrap a{color:var(--red-bright); text-decoration:underline}
+.mo-wrap a:hover{color:var(--red)}
+.mo-page-title{
+  font-family:'Noto Serif Thai','Cinzel',serif;
+  color:var(--gold-bright);
+  font-size:clamp(1.5rem,3.4vw,2.2rem);
+  text-align:center; margin:0 0 22px;
+  text-shadow:0 2px 10px rgba(0,0,0,.6);
+}
+.mo-page-title small{
+  display:block; font-family:'Noto Serif Thai',serif; font-size:.58rem;
+  letter-spacing:.3em; color:var(--gold-dim); margin-top:8px; text-transform:uppercase;
+}
+.mo-hero{
+  border-radius:10px; overflow:hidden; margin:0 0 24px;
+  border:3px solid var(--wood-light); box-shadow:var(--shadow);
+  outline:1px solid var(--gold-dim); outline-offset:-6px;
+  max-width:900px; margin-left:auto; margin-right:auto;
+}
+.mo-frame{
+  max-width:1100px; margin:0 auto;
+  background:linear-gradient(180deg, var(--parchment), var(--parchment-dark));
+  border-radius:10px; padding:2px; box-shadow:var(--shadow);
+  position:relative;
+}
+.mo-frame-inner{
+  border-radius:8px; border:3px solid var(--wood-light);
+  outline:1px solid var(--gold-dim); outline-offset:-7px;
+  padding:30px clamp(16px,4vw,44px); position:relative;
+}
+.mo-corner{position:absolute; width:24px; height:24px; border:2px solid var(--gold); opacity:.85}
+.mo-corner.tl{top:7px;left:7px;border-right:none;border-bottom:none}
+.mo-corner.tr{top:7px;right:7px;border-left:none;border-bottom:none}
+.mo-corner.bl{bottom:7px;left:7px;border-right:none;border-top:none}
+.mo-corner.br{bottom:7px;right:7px;border-left:none;border-top:none}
+.mo-body h1,.mo-body h2,.mo-body h3{
+  font-family:'Cinzel',serif; color:var(--red); letter-spacing:.02em;
+  margin:0 0 .55em; border-bottom:2px solid var(--gold-dim); padding-bottom:.3em;
+}
+.mo-body h1{font-size:1.4rem}
+.mo-body h2{font-size:1.22rem}
+.mo-body h3{font-size:1.05rem}
+.mo-body p{margin:0 0 1.05em}
+.mo-body ul{margin:0 0 1.1em; padding-left:1.3em}
+.mo-body li{margin:0 0 .5em}
+.mo-body strong,.mo-body b{color:var(--red)}
+.mo-body .forbid{color:var(--red); font-weight:600}
+
+/* ===== ช่องใส่รูปประจำหัวข้อ ===== */
+.mo-topic{
+  display:flex; gap:clamp(18px,3vw,36px);
+  align-items:flex-start;
+  margin:0 0 2.4em;
+  padding-bottom:2.2em;
+  border-bottom:1px dashed var(--gold-dim);
+}
+.mo-topic:last-child{border-bottom:none; margin-bottom:0; padding-bottom:0}
+.mo-topic:nth-of-type(even){flex-direction:row-reverse}
+.mo-topic-media{flex:0 0 300px; max-width:300px; width:100%}
+.mo-topic-text{flex:1 1 320px; min-width:0}
+.mo-topic-text h2{margin-top:0}
+.mo-img-slot{
+  width:100%; aspect-ratio:4/5; border-radius:8px;
+  border:3px solid var(--wood-light);
+  outline:1px solid var(--gold-dim); outline-offset:-6px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.mo-img-slot img{width:100%; height:100%; object-fit:cover}
+.mo-img-slot.empty{
+  display:flex; align-items:center; justify-content:center;
+  background:
+    repeating-linear-gradient(45deg, rgba(201,163,92,.08) 0 10px, rgba(201,163,92,.02) 10px 20px),
+    linear-gradient(180deg, #2a1c0f, #1c130a);
+  border-style:dashed;
+}
+.mo-img-slot.empty .mo-img-slot-label{
+  font-family:'Noto Serif Thai',serif; font-size:.82rem; letter-spacing:.05em;
+  color:var(--gold-dim); text-align:center; padding:0 12px;
+}
+@media (max-width:720px){
+  .mo-topic, .mo-topic:nth-of-type(even){ flex-direction:column }
+  .mo-topic-media{ flex:0 0 auto; max-width:100%; }
+  .mo-img-slot{ aspect-ratio:16/9 }
+}
+</style>
+</head>
+<body>
+<div class="mo-wrap">
+  <h1 class="mo-page-title">เรื่องเล่า ตำนาน<small>Medieval Online RP &middot; Thailand</small></h1>
+  <div class="mo-hero"><img src="https://lh3.googleusercontent.com/sitesv/AG8ngQWItyd7B-eLAlYg02o9X7GmYUuA3Qh5bFcCLbsyiSaHNec0KSrUdRv3ZFbQVBo3gb_Yoh_D-HdaX-tfvzxqyRcJ1zcC_gbXxpuxz4ki-gD5yFn-k-wRcNo3PE7Zy1jT4N6wu91cLTzZSqCfzWNLQejRQhwB5N5YmdBJINzLsYm3ufl15aYKHjuprShwSL_NNgDcNfubqVCVVO8iFMOylSXnkX2YZuq-2MT0e6h_o2A=w1280" alt=""></div>
+  <div class="mo-frame">
+    <div class="mo-frame-inner">
+      <span class="mo-corner tl"></span><span class="mo-corner tr"></span>
+      <span class="mo-corner bl"></span><span class="mo-corner br"></span>
+      <div class="mo-body">
+
+<!-- 1. Lady Valestria -->
+<div class="mo-topic">
+  <div class="mo-topic-media">
+    <!-- แทนที่ src ด้านล่างด้วยลิงก์รูปของ Lady Valestria -->
+    <div class="mo-img-slot"><img src="https://i.postimg.cc/J7yVShmC/1.webp" alt="Lady Valestria"></div>
+  </div>
+  <div class="mo-topic-text">
+    <h2>Lady Valestria</h2>
+    <p><strong>ความเชื่อและเทพเจ้า Lady Valestria:</strong> วีรสตรีผู้สังหารมังกรตัวสุดท้าย เชื่อว่าเป็นตัวแทนของ "ชีวิตและ ความตาย" มักปรากฏในงานศิลปะพร้อมดาบเทมพลาร์ขนาดใหญ่และปีกขนนก ดาบของเธอเชื่อว่ามีพลังทั้ง "สังหารและรักษา"</p>
+    <p><strong>ปรากฏการณ์ธรรมชาติ The Wraithwind:</strong> พายุร้ายแรงเย็นยะเยือกที่โหมกระหน่ำตลอดกาลบนทวีป Veloria การจะเดินทางผ่านได้ต้องวางแผนอย่างหนัก ใช้กลุ่มคนจำนวนมาก ม้าลากโครงสร้างไม้เสริมความแข็งแรง และคบเพลิงให้ความอบอุ่นตลอดเวลา</p>
+  </div>
+</div>
+
+<!-- 2. มังกร -->
+<div class="mo-topic">
+  <div class="mo-topic-media">
+    <div class="mo-img-slot">
+      <img src="https://i.postimg.cc/dQ7Pg0vP/3-1.webp" alt="มังกร">
+    </div>
+  </div>
+  <div class="mo-topic-text">
+    <h2>มังกร (Dragons)</h2>
+    <p><strong>สถานะปัจจุบัน:</strong> ถูกเชื่อว่า สูญพันธุ์ไปแล้ว มานานอย่างน้อยหนึ่งถึงสองร้อยปี โดยตำนานระบุว่ามังกรตัวสุดท้ายถูกสังหารโดยวีรสตรีโบราณนามว่า Lady Valestria (Dragonsbane) ปัจจุบันเหลือเพียงเศษซากกะโหลกและกระดูกไม่กี่ชิ้นที่ถูกเก็บรักษาและคุ้มกันอย่างเข้มงวดในฐานะโบราณวัตถุในบางอาณาจักร</p>
+    <p><strong>ลักษณะในอดีต:</strong> เป็นสิ่งมีชีวิตขนาดมหึมาที่พ่นไฟได้ ปีกขนาดใหญ่สร้างลมรุนแรงจนต้นไม้โค้งงอ ในอดีตมังกรแห่ง Veloria มักจะบินอยู่เหนือพายุ Wraithwinds เพื่ออาศัยกระแสลมช่วยพยุงตัวในการลอยตัว และจะลงมาบนพื้นดินเฉพาะตอนออกล่าเพราะความหิวเท่านั้น</p>
+  </div>
+</div>
+
+<!-- 3. ไรธ์วูล์ฟ -->
+<div class="mo-topic">
+  <div class="mo-topic-media">
+    <!-- แทนที่ src ด้านล่างด้วยลิงก์รูปของ ไรธ์วูล์ฟ (Wraithwolves) -->
+    <div class="mo-img-slot"><img src="https://i.postimg.cc/RqrTDdmy/2-1.webp" alt="ไรธ์วูล์ฟ (Wraithwolves)"></div>
+  </div>
+  <div class="mo-topic-text">
+    <h2>ไรธ์วูล์ฟ (Wraithwolves)</h2>
+    <p><strong>ถิ่นที่พบ:</strong> มีถิ่นกำเนิดอยู่บนทวีป Veloria โดยมักอาศัยอยู่ในเขตพายุรุนแรง Wraithwinds และแทบไม่เคยปรากฏตัวนอกเขตนี้เลย</p>
+    <p><strong>ลักษณะและพฤติกรรม:</strong> เป็นหมาป่าสายพันธุ์หายากที่มีขนาดใหญ่กว่าหมาป่าทั่วไปอย่างชัดเจน มีกล้ามเนื้อหนาแน่น หนังและขนหนาหนักเพื่อทนความหนาวจัด มักล่าเป็นฝูงอย่างมีระเบียบตามทิศทางลมเพื่อลดแรงต้านพายุ ดุร้ายและหวงอาณาเขตมาก มักเข้าโจมตีทำลายฐานพักและขบวนนักเดินทาง ในบางครั้งอาจพบตัวเดี่ยวๆ หลุดมานอกเขตพายุ ซึ่งมักเป็นตัวที่ถูกขับออกจากฝูงหรือหลงทาง</p>
+  </div>
+</div>
+
+<!-- 4. กอบลิน -->
+<div class="mo-topic">
+  <div class="mo-topic-media">
+    <div class="mo-img-slot">
+      <img src="https://i.postimg.cc/DzfR6vBn/Goblin.webp" alt="กอบลิน">
+    </div>
+  </div>
+  <div class="mo-topic-text">
+    <h2>กอบลิน (Goblins)</h2>
+    <p><strong>ถิ่นที่พบ:</strong> พบครั้งแรกบนทวีป Veloria โดยมักจะเดินทางจากพื้นที่โล่งในพายุที่ชื่อว่า Bogmire เข้าสู่เขตของอาณาจักร Rivenvale และ Frostmarch</p>
+    <p><strong>ลักษณะและพฤติกรรม:</strong> ในแวบแรกดูคล้ายมนุษย์เพราะมีสองแขนสองขา แต่แท้จริงแล้วใกล้เคียงกับสัตว์ป่าที่มีไหวพริบสูงและเจ้าเล่ห์คล้ายนกกินซาก พวกมันเรียนรู้เร็วและสามารถเลียนเสียงพูดของมนุษย์ได้ แต่พวกมันพูดโดยไม่ได้มีความรู้สึกจริงใจ แค่เลียนเสียงเพื่อหาอาหาร ความปลอดภัย หรือหลอกให้มนุษย์สงสารเท่านั้น พวกมันขับเคลื่อนด้วยสัญชาตญาณ ความหิว และความก้าวร้าว สามารถปล้นและฆ่าได้โดยปราศจากความเกลียดชังหรือความเมตตา</p>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TEST | Medieval Online TH - บทบาท</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cinzel+Decorative:wght@700&family=Noto+Serif+Thai:wght@400;500;600;700&display=swap');
+:root{
+  --wood-dark:#241a10; --wood:#3a2814; --wood-light:#5a3f22;
+  --gold:#c9a35c; --gold-bright:#e8c983; --gold-dim:#8a6a3a;
+  --parchment:#e9d9b3; --parchment-dark:#d8c497;
+  --ink:#3b2b18; --ink-soft:#5a4630;
+  --red:#7a2020; --red-bright:#9c2c2c;
+  --shadow: 0 10px 30px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+body{margin:0}
+.mo-wrap{
+  font-family:'Noto Serif Thai', Georgia, serif;
+  font-size:18px; line-height:1.7; color:var(--ink);
+  background:
+    radial-gradient(900px 500px at 15% -20%, #2a1c0f 0%, transparent 60%),
+    linear-gradient(180deg, #1c130a, #14100a 100%);
+  padding:28px 14px 46px;
+  border-radius:12px;
+}
+.mo-wrap img{max-width:100%; display:block}
+.mo-wrap a{color:var(--red-bright); text-decoration:underline}
+.mo-wrap a:hover{color:var(--red)}
+.mo-page-title{
+  font-family:'Noto Serif Thai','Noto Serif Thai',serif;
+  color:var(--gold-bright);
+  font-size:clamp(1.5rem,3.4vw,2.2rem);
+  text-align:center; margin:0 0 22px;
+  text-shadow:0 2px 10px rgba(0,0,0,.6);
+}
+.mo-page-title small{
+  display:block; font-family:'Noto Serif Thai',serif; font-size:.58rem;
+  letter-spacing:.3em; color:var(--gold-dim); margin-top:8px; text-transform:uppercase;
+}
+.mo-hero{
+  border-radius:10px; overflow:hidden; margin:0 0 24px;
+  border:3px solid var(--wood-light); box-shadow:var(--shadow);
+  outline:1px solid var(--gold-dim); outline-offset:-6px;
+  max-width:900px; margin-left:auto; margin-right:auto;
+}
+.mo-frame{
+  max-width:1100px; margin:0 auto;
+  background:linear-gradient(180deg, var(--parchment), var(--parchment-dark));
+  border-radius:10px; padding:2px; box-shadow:var(--shadow);
+  position:relative;
+}
+.mo-frame-inner{
+  border-radius:8px; border:3px solid var(--wood-light);
+  outline:1px solid var(--gold-dim); outline-offset:-7px;
+  padding:30px clamp(16px,4vw,44px); position:relative;
+}
+.mo-corner{position:absolute; width:24px; height:24px; border:2px solid var(--gold); opacity:.85}
+.mo-corner.tl{top:7px;left:7px;border-right:none;border-bottom:none}
+.mo-corner.tr{top:7px;right:7px;border-left:none;border-bottom:none}
+.mo-corner.bl{bottom:7px;left:7px;border-right:none;border-top:none}
+.mo-corner.br{bottom:7px;right:7px;border-left:none;border-top:none}
+.mo-body h1,.mo-body h2,.mo-body h3{
+  font-family:'Noto Serif Thai',serif; color:var(--red); letter-spacing:.02em;
+  margin:0 0 .55em; border-bottom:2px solid var(--gold-dim); padding-bottom:.3em;
+}
+.mo-body h1{font-size:1.4rem}
+.mo-body h2{font-size:1.22rem}
+.mo-body h3{font-size:1.05rem}
+.mo-body p{margin:0 0 1.05em}
+.mo-body ul{margin:0 0 1.1em; padding-left:1.3em}
+.mo-body li{margin:0 0 .5em}
+.mo-body strong,.mo-body b{color:var(--red)}
+.mo-body .forbid{color:var(--red); font-weight:600}
+
+/* ===== ช่องใส่รูปประจำหัวข้อ ===== */
+.mo-topic{
+  display:flex; gap:clamp(18px,3vw,36px);
+  align-items:flex-start;
+  margin:0 0 2.4em;
+  padding-bottom:2.2em;
+  border-bottom:1px dashed var(--gold-dim);
+}
+.mo-topic:last-child{border-bottom:none; margin-bottom:0; padding-bottom:0}
+.mo-topic:nth-of-type(even){flex-direction:row-reverse}
+.mo-topic-media{flex:0 0 300px; max-width:300px; width:100%}
+.mo-topic-text{flex:1 1 320px; min-width:0}
+.mo-topic-text h2{margin-top:0}
+.mo-img-slot{
+  width:100%; aspect-ratio:4/5; border-radius:8px;
+  border:3px solid var(--wood-light);
+  outline:1px solid var(--gold-dim); outline-offset:-6px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.mo-img-slot img{width:100%; height:100%; object-fit:cover}
+.mo-img-slot.empty{
+  display:flex; align-items:center; justify-content:center;
+  background:
+    repeating-linear-gradient(45deg, rgba(201,163,92,.08) 0 10px, rgba(201,163,92,.02) 10px 20px),
+    linear-gradient(180deg, #2a1c0f, #1c130a);
+  border-style:dashed;
+}
+.mo-img-slot.empty .mo-img-slot-label{
+  font-family:'Noto Serif Thai',serif; font-size:.82rem; letter-spacing:.05em;
+  color:var(--gold-dim); text-align:center; padding:0 12px;
+}
+@media (max-width:720px){
+  .mo-topic, .mo-topic:nth-of-type(even){ flex-direction:column }
+  .mo-topic-media{ flex:0 0 auto; max-width:100%; }
+  .mo-img-slot{ aspect-ratio:16/9 }
+}
+</style>
+</head>
+<body>
+<div class="mo-wrap">
+  <h1 class="mo-page-title">บทบาท<small>Medieval Online RP &middot; Thailand</small></h1>
+  <div class="mo-hero"><img src="https://lh3.googleusercontent.com/sitesv/AG8ngQWeAsTTQ5sWve8KZabYwdBe9yISvwOf2QfZCMeMmboKKohsxczobvDleouJZKBncSi-ktJYF0puOE7yym-1NRRcHGKpcSdFhRCA6l6qBMNyhNx2-3KOiPBMCis9VTuCope7Eh4ZHGS6QvV_wObdSp4hWpT64xESFP04aq9mMQv-35IO9uh45_CtcHcWEinLm4PqVOTxShye0xpWG-il_NwJCJu572QeXxt_T3PkXos=w1280" alt=""></div>
+  <div class="mo-frame">
+    <div class="mo-frame-inner">
+      <span class="mo-corner tl"></span><span class="mo-corner tr"></span>
+      <span class="mo-corner bl"></span><span class="mo-corner br"></span>
+      <div class="mo-body">
+
+<!-- 1. กษัตริย์ -->
+<div class="mo-topic">
+  <div class="mo-topic-media">
+    <!-- แทนที่ src ด้านล่างด้วยลิงก์รูปของ กษัตริย์ (The King) -->
+    <div class="mo-img-slot"><img src="https://i.postimg.cc/XvNtLjQ0/1-King-Emperor.webp" alt="กษัตริย์ (The King)"></div>
+  </div>
+  <div class="mo-topic-text">
+    <h2>กษัตริย์ (The King)</h2>
+    <p>กษัตริย์ในยุคนี้ไม่ได้มีอำนาจเบ็ดเสร็จเหมือนกษัตริย์ในยุคสมบูรณาญาสิทธิราชย์แต่เป็นเสมือน"ประธาน" ของกลุ่มขุนนาง</p>
+    <p><strong>หน้าที่หลัก:</strong> เป็นเจ้าของที่ดินทั้งหมดในอาณาจักร โดยจะแบ่งที่ดินบางส่วนให้ขุนนางดูแลเพื่อแลกกับการรับรองความมั่นคงของบ้านเมือง</p>
+    <p><strong>การแต่งกาย:</strong> เสื้อกำมะหยี่สีโทนเข้ม (แดงเลือดนก, กรมท่า, ดำขลิบทอง) ทับด้วยเสื้อคลุมไหล่ประดับขนสัตว์, แหวนตราประทับ (สำคัญมาก), มงกุฎ, สร้อยคอประจำตำแหน่ง</p>
+    <p><strong>อาวุธ:</strong> ดาบพิธีการสวยงามเหน็บเอว</p>
+    <p><strong>แนวทางการเล่น:</strong> วางตัวเป็นผู้ตัดสินชี้ขาดความขัดแย้งระหว่างขุนนางต้องคอยบริหารความสัมพันธ์ไม่ให้ขุนนางคนไหนมีอำนาจมากเกินไปในเชิง Role Play คุณคือผู้ออกคำสั่งภาพรวม เช่น ประกาศสงคราม หรือจัดเก็บภาษีผ่านระบบขุนนาง</p>
+  </div>
+</div>
+
+<!-- 2. ขุนนาง -->
+<div class="mo-topic">
+  <div class="mo-topic-media">
+    <div class="mo-img-slot">
+      <img src="https://i.postimg.cc/KYcCfGJS/3-Duke-Marquess.webp" alt="ขุนนาง">
+    </div>
+  </div>
+  <div class="mo-topic-text">
+    <h2>ขุนนาง (Lords)</h2>
+    <p>ขุนนางทำหน้าที่เป็น "ตัวกลาง" ระหว่างกษัตริย์และชนชั้นล่าง โดยได้รับมอบที่ดิน (Fief) มาบริหารจัดการ</p>
+    <p><strong>หน้าที่หลัก</strong></p>
+    <ul><li><strong>ต่อกษัตริย์:</strong> ต้องให้ความจงรักภักดี และส่งกองกำลังทหาร (อัศวิน) ไปช่วยกษัตริย์ในยามสงคราม</li><li><strong>ต่อประชาชน:</strong> ต้องให้ความคุ้มครอง (Protection) จากโจรผู้ร้ายหรือศัตรูภายนอก และจัดสรรที่ดินทำกินให้</li></ul>
+    <p><strong>การแต่งกาย:</strong> เสื้อทูนิคหรือดับเบลตเนื้อดี เน้นสวมใส่สีประจำตระกูลหรือกลุ่มอย่างชัดเจน, เสื้อคลุมสั้นเพื่อความคล่องตัว ต้องมีตราสัญลักษณ์ประจำตระกูล</p>
+    <p><strong>อาวุธ:</strong> ดาบยาวที่ดูทะมัดทะแมงและใช้งานได้จริง ไม่ใช่แค่ดาบพิธีการสวยงาม</p>
+    <p><strong>แนวทางการเล่น:</strong> เน้นความมั่นคงของเขตแดนตัวเองเป็นผู้บริหารจัดการทรัพยากร (ภาษี/ผลผลิต) ที่ได้รับมาจากชาวนา เพื่อนำไปเป็นค่าใช้จ่ายในการบำรุงกองทัพ</p>
+  </div>
+</div>
+
+<!-- 3. นักบวชและบาทหลวง -->
+<div class="mo-topic">
+  <div class="mo-topic-media">
+    <!-- แทนที่ src ด้านล่างด้วยลิงก์รูปของ นักบวชและบาทหลวง -->
+    <div class="mo-img-slot"><img src="https://i.postimg.cc/5t9Dg4n0/The-Clergy.webp" alt="นักบวชและบาทหลวง"></div>
+  </div>
+  <div class="mo-topic-text">
+    <h2>นักบวชและบาทหลวง (The Clergy)</h2>
+    <p>ในยุคกลาง ศาสนาคือศูนย์กลางของชีวิต ความเชื่อ และการเมือง</p>
+    <p><strong>หน้าที่:</strong> ทำหน้าที่เป็นที่ปรึกษาของกษัตริย์และขุนนาง ให้ความรู้แก่ผู้คนในอาณาจักร และเป็นผู้ประกอบพิธีกรรมทางศาสนา</p>
+    <p><strong>การแต่งกาย:</strong> เสื้อคลุมยาวกรอมเท้า แขนยาวปิดมิดชิดสีพื้น เช่น น้ำตาล ดำ หรือเทา, เครื่องประดับ สร้อยกางเขนขนาดใหญ่ สายประคำ และคัมภีร์</p>
+    <p><strong>อาวุธ:</strong> ไม่มีอาวุธมีคม (ผิดกฎทางศาสนา) แต่อาจใช้ ไม้เท้าทรงตะขอ</p>
+    <p><strong>แนวทางการเล่น:</strong> เล่นให้เป็นผู้ที่มีอำนาจทางจิตวิญญาณ อาจทำตัวเป็น "สะพานเชื่อม" ระหว่างชนชั้น (เช่น ช่วยไกล่เกลี่ยความขัดแย้ง) หรือเป็นผู้คอยเตือนสติผู้ปกครองให้ทำตามหลักศาสนา</p>
+  </div>
+</div>
+
+<!-- 4. อัศวิน -->
+<div class="mo-topic">
+  <div class="mo-topic-media">
+    <div class="mo-img-slot">
+      <img src="https://i.postimg.cc/DzfR6vBV/4-Castellan-Knight-Commander.webp" alt="อัศวิน">
+    </div>
+  </div>
+  <div class="mo-topic-text">
+    <h2>อัศวิน (Knights)</h2>
+    <p>อัศวินคืออาชีพที่เน้นการฝึกฝนทักษะการต่อสู้ และเป็นผู้ที่ได้รับมอบหมายให้ดูแลความสงบเรียบร้อย</p>
+    <p><strong>หน้าที่หลัก:</strong> ปฏิบัติหน้าที่ทางทหารตามคำสั่งของขุนนางเพื่อแลกกับที่ดิน อาหาร และที่พักอาศัย</p>
+    <p><strong>การแต่งกาย:</strong> เสื้อผ้าสวมทับชุดเกราะที่ต้องมีตราสัญลักษณ์ของเจ้านาย ชุดเกราะสวมเกราะโซ่ถักด้านใน และเสริมเกราะแผ่นเหล็กตามจุดสำคัญ เช่น อก ไหล่ และแขน</p>
+    <p><strong>อาวุธ:</strong> ดาบยาวและมักจะสะพายโล่</p>
+    <p><strong>แนวทางการเล่น:</strong> มีวินัยสูงและยึดถือในสัญญาที่ให้ไว้กับขุนนางในเชิง Role Play คุณคือ "มือขวา" ของขุนนาง ผู้ซึ่งต้องออกไปเผชิญหน้ากับอันตรายแทนผู้ปกครองต้องแสดงภาพลักษณ์ที่ดูแข็งแกร่งและพร้อมรบอยู่เสมอ</p>
+  </div>
+</div>
+
+<!-- 5. พ่อค้า -->
+<div class="mo-topic">
+  <div class="mo-topic-media">
+    <!-- แทนที่ src ด้านล่างด้วยลิงก์รูปของ พ่อค้า -->
+    <div class="mo-img-slot"><img src="https://i.postimg.cc/hG4NsDpg/7-Grand-Merchant-Guild-Master.webp" alt="พ่อค้า"></div>
+  </div>
+  <div class="mo-topic-text">
+    <h2>พ่อค้า (Merchants/Burgesses)</h2>
+    <p>เมื่อเมืองเริ่มขยายตัว ชนชั้นนี้ก็มีความสำคัญเพิ่มขึ้น เพราะเป็นผู้ขับเคลื่อนเศรษฐกิจด้วยเงินตราแทนที่ระบบแลกเปลี่ยนผลผลิต</p>
+    <p><strong>หน้าที่:</strong> นำสินค้าจากที่หนึ่งไปขายอีกที่หนึ่ง หรือผลิตสินค้าที่ชาวนาทำเองไม่ได้ (เช่น ช่างตีเหล็ก, ช่างทำรองเท้า, พ่อค้าผ้า)</p>
+    <p><strong>การแต่งกาย:</strong> เสื้อโค้ตยาวหรือเสื้อคลุมผ่าหน้าทำจากผ้าขนสัตว์เนื้อหนาผ้ากำมะหยี่หรือผ้าไหมนำเข้า, เครื่องประดับ ถุงเงินใบใหญ่ แหวนทองหรือแหวนพลอย</p>
+    <p><strong>อาวุธ:</strong> มีดสั้น</p>
+    <p><strong>แนวทางการเล่น:</strong> เล่นให้เป็นคนที่มีความรู้เรื่องโลกภายนอกและมีความฉลาดแกมโกงในการเจรจาต่อรอง คุณเป็นคนเดียวที่ไม่ยึดติดกับที่ดินเหมือนชาวนา แต่ต้องอาศัยการคุ้มครองจากขุนนางในการขนส่งสินค้า</p>
+  </div>
+</div>
+
+<!-- 6. กองกำลังรักษาความสงบ -->
+<div class="mo-topic">
+  <div class="mo-topic-media">
+    <div class="mo-img-slot">
+      <img src="https://i.postimg.cc/cJ1PhxXG/6-Man-at-Arms-Squire.webp" alt="กองกำลังรักษาความสงบ">
+    </div>
+  </div>
+  <div class="mo-topic-text">
+    <h2>กองกำลังรักษาความสงบ (Guards)</h2>
+    <p>แตกต่างจากอัศวินตรงที่ไม่ใช่ชนชั้นสูง แต่เป็นกองกำลังชั้นผู้น้อยที่ดูแลความปลอดภัยในระดับพื้นที่</p>
+    <p><strong>หน้าที่:</strong> เฝ้ายามที่ประตูเมือง, ลาดตระเวนในตลาด, และปราบปรามการก่อจลาจลย่อยๆ</p>
+    <p><strong>การแต่งกาย:</strong> เสื้อเนื้อหนาเย็บเน้นความแข็งแรงทับด้วยเสื้อกั๊กผ้าคลุมสีประจำเมือง หมวกเหล็กทรงกะทะหรือหมวกเปิดหน้า, เครื่องประดับ แตรเขาสัตว์ โคมไฟหรือคบเพลิง</p>
+    <p><strong>อาวุธ:</strong> อาวุธด้ามยาว เช่น หอก หรือขวานด้ามยาว</p>
+    <p><strong>แนวทางการเล่น:</strong> เล่นให้เป็นคนที่มีความเด็ดขาดแต่ก็ต้องเผชิญกับสถานการณ์ความวุ่นวายรายวัน เป็นตัวละครที่ช่วยเพิ่มบรรยากาศความตึงเครียดหรือความปลอดภัยให้กับเนื้อเรื่อง</p>
+  </div>
+</div>
+
+<!-- 7. หมอยา / ช่างปรุงยา -->
+<div class="mo-topic">
+  <div class="mo-topic-media">
+    <!-- แทนที่ src ด้านล่างด้วยลิงก์รูปของ หมอยา / ช่างปรุงยา -->
+    <div class="mo-img-slot"><img src="https://i.postimg.cc/c4HKpwCk/Gemini-Generated-Image-(1).png" alt="หมอยา / ช่างปรุงยา"></div>
+  </div>
+  <div class="mo-topic-text">
+    <h2>หมอยา / ช่างปรุงยา (Physician / Apothecary)</h2>
+    <p>ผู้กุมความเป็นความตายในยุคที่การแพทย์ยังเป็นเรื่องลึกลับ</p>
+    <p><strong>หน้าที่:</strong> ดูแลอาการเจ็บป่วย ใช้สมุนไพรในการรักษา หรือทำน้ำยาต่างๆ (ตามธีมของเกม)</p>
+    <p><strong>การแต่งกาย:</strong> เสื้อทูนิคหรือเสื้อคลุมยาวปานกลาง สีโทนธรรมชาติ (เขียวใบไม้, ครีม, น้ำตาลอ่อน) ทับด้วยผ้ากันเปื้อนที่มีช่องใส่ของเยอะๆ</p>
+    <p><strong>แนวทางการเล่น:</strong> คุณเป็นที่ต้องการของทุกคนตั้งแต่กษัตริย์ยันชาวนาในเชิง Role Play คุณอาจมีความรู้ที่คนอื่นไม่มี (เช่น พิษหรือสมุนไพรหายาก) ทำให้บทบาทของคุณดูลึกลับและน่าเกรงขาม</p>
+  </div>
+</div>
+
+<!-- 8. ช่างตีเหล็ก -->
+<div class="mo-topic">
+  <div class="mo-topic-media">
+    <div class="mo-img-slot">
+      <img src="https://i.postimg.cc/zXBLsKvt/Gemini-Generated-Image-(2).png" alt="ช่างตีเหล็ก">
+    </div>
+  </div>
+  <div class="mo-topic-text">
+    <h2>ช่างตีเหล็ก (Blacksmith)</h2>
+    <p>ถือเป็น "หัวใจสำคัญ" ของการเตรียมพร้อมทางทหารและเกษตรกรรม</p>
+    <p><strong>หน้าที่:</strong> ตีดาบ/ชุดเกราะให้กับอัศวิน และทำเครื่องมือทางการเกษตร (จอบ, เสียม, ผาลไถ) ให้ชาวนา</p>
+    <p><strong>การแต่งกาย:</strong> เสื้อผ้าฝ้ายหรือลินินหยาบๆ สีมืด (เทา, น้ำตาล) พับแขนเสื้อขึ้นทับด้วย ผ้ากันเปื้อนหนังหนา ที่มีคราบเขม่าหรือรอยไหม้</p>
+    <p><strong>แนวทางการเล่น:</strong> คุณคือคนกุมความได้เปรียบ เพราะทุกคนต้องมาหาคุณเมื่ออุปกรณ์พังในเชิง Role Play คุณอาจจะเป็นคน "รู้ข่าววงใน" มากที่สุด เพราะระหว่างตีเหล็ก มักจะมีคนแวะเวียนมาพูดคุยหรือบ่นเรื่องต่างๆ ให้ฟังเสมอ</p>
+  </div>
+</div>
+
+<!-- 9. ช่างก่อสร้าง -->
+<div class="mo-topic">
+  <div class="mo-topic-media">
+    <div class="mo-img-slot">
+      <img src="https://i.postimg.cc/gkJwC8jB/Gemini-Generated-Image-(3).png" alt="ช่างก่อสร้าง">
+    </div>
+  </div>
+  <div class="mo-topic-text">
+    <h2>ช่างก่อสร้าง (Master Builder / Mason)</h2>
+    <p>ผู้สร้างความยิ่งใหญ่ให้กับอาณาจักร</p>
+    <p><strong>หน้าที่:</strong> ออกแบบและควบคุมการสร้างปราสาท, โบสถ์, กำแพงเมือง หรือคฤหาสน์ของขุนนาง</p>
+    <p><strong>การแต่งกาย:</strong> เสื้อผ้าฝ้ายหรือลินินหยาบๆ สีมืด (เทา, น้ำตาล) พับแขนเสื้อขึ้นทับด้วย ผ้ากันเปื้อนหนังหนา ที่มีคราบเขม่าหรือรอยไหม้</p>
+    <p><strong>แนวทางการเล่น:</strong> คุณต้องทำงานร่วมกับขุนนาง (ผู้ว่าจ้าง) และชาวนา (แรงงาน) ในเชิง Role Play คุณคือคนที่มีเหตุผลและเป๊ะในเรื่องตัวเลข/โครงสร้าง อาจเป็นตัวละครที่คอยเตือนเรื่องงบประมาณหรือความปลอดภัยของสิ่งก่อสร้าง</p>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
