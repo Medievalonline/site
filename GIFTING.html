@@ -251,6 +251,23 @@
   // ============================================================
   const BUY_URL = 'https://medieval-rp-thai.tebex.store';
 
+  // Works even when an external image host blocks GitHub Pages hotlinking.
+  // Keep the original image URL above; this local SVG is used only on failure.
+  const giftImageFallback = (title) =>
+    'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+        <defs>
+          <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#151d20"/><stop offset="1" stop-color="#050708"/></linearGradient>
+          <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f0d9a4"/><stop offset=".5" stop-color="#b7975d"/><stop offset="1" stop-color="#5b4529"/></linearGradient>
+        </defs>
+        <rect width="800" height="600" fill="url(#bg)"/>
+        <rect x="24" y="24" width="752" height="552" fill="none" stroke="url(#gold)" stroke-width="4"/>
+        <path d="M400 118l105 62v120c0 88-57 151-105 181-48-30-105-93-105-181V180z" fill="#0c1112" stroke="url(#gold)" stroke-width="8"/>
+        <path d="M400 177v205M335 236h130" stroke="url(#gold)" stroke-width="8" opacity=".8"/>
+        <text x="400" y="465" text-anchor="middle" fill="#f0d9a4" font-family="Georgia,serif" font-size="42" letter-spacing="4">${title}</text>
+        <text x="400" y="510" text-anchor="middle" fill="#b7975d" font-family="Georgia,serif" font-size="18" letter-spacing="6">MEDIEVAL RP</text>
+      </svg>`);
+
   const giftCardDesc = 'เมื่อซื้อแพ็กเกจนี้ คุณจะได้รับบัตรของขวัญ (Gift Card) ที่มีมูลค่าเท่ากับราคาของสถานะ Supporter รวมภาษีที่เกี่ยวข้อง บัตรของขวัญนี้ไม่ได้จำกัดการใช้งานเฉพาะสถานะ Supporter เท่านั้น แต่สามารถนำไปใช้ซื้อสินค้าหรือบริการใดก็ได้ในร้านค้าออนไลน์ของเรา ซึ่งช่วยให้คุณสามารถมอบสถานะดังกล่าวเป็นของขวัญให้เพื่อน หรือช่วยลดราคาสำหรับการซื้อสถานะที่มีราคาสูงกว่าได้หากคุณต้องการมอบสถานะ Supporter เป็นของขวัญ เพียงแค่ซื้อบัตรของขวัญที่มีมูลค่าตรงกับราคาของสถานะที่ต้องการมอบให้ หลังจากชำระเงินเสร็จสิ้น รหัสบัตรของขวัญจะถูกส่งไปยังอีเมลของคุณ ผู้รับสามารถนำรหัสนี้ไปกรอกในช่อง Coupon / Gift Card ระหว่างขั้นตอนการชำระเงินเมื่อซื้อสถานะ Supporter ได้โปรดทราบว่าการซื้อแพ็กเกจนี้ไม่ได้ทำให้คุณได้รับสิทธิ์เข้าถึงเซิร์ฟเวอร์ (Whitelist) และไม่ได้เพิ่มลำดับความสำคัญในการรอคิวเข้าเซิร์ฟเวอร์แต่อย่างใด แพ็กเกจนี้เป็นเพียงการสร้างรหัสบัตรของขวัญสำหรับใช้ในร้านค้าออนไลน์ของเราเท่านั้นรายได้ทั้งหมดจะถูกนำไปใช้พัฒนาเซิร์ฟเวอร์ต่อ เช่น การจัดหาสคริปต์ การจ้างนักพัฒนา การปรับปรุงระบบอย่างต่อเนื่อง และการสนับสนุนทีมงาน บัตรของขวัญไม่สามารถขอคืนเงินได้ หากมีการทำเรื่องขอคืนเงินผ่านธนาคารหรือผู้ให้บริการชำระเงิน (Chargeback) หลังจากซื้อบัตรของขวัญไปแล้ว เราขอสงวนสิทธิ์ในการระงับบัญชีของคุณจากการเป็นส่วนหนึ่งของชุมชนนี้';
 
   // ---- Gift data, pulled from each gift's own ticket page ----
@@ -319,7 +336,7 @@
       <span class="gem tl"></span><span class="gem tr"></span><span class="gem bl"></span><span class="gem br"></span>
       <div class="ticket-media">
         <div class="ticket-media-inner">
-          <img src="${g.image}" alt="${g.title}" onerror="this.src='https://placehold.co/400x300/2b2015/e0be6f?text=Gift+Card'">
+          <img src="${g.image}" alt="${g.title}" onerror="this.onerror=null;this.src=giftImageFallback(this.alt)">
         </div>
         <span class="status-pill" style="background:linear-gradient(180deg, ${g.statusBg}, var(--gold-dim)); color:${g.statusInk};">${g.status}</span>
       </div>
