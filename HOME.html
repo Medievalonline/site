@@ -41,18 +41,16 @@ body{margin:0}
   letter-spacing:.3em; color:var(--gold-dim); margin-top:8px; text-transform:uppercase;
 }
 .mo-fixed-banner{
-  position:fixed; top:0; left:0; right:0;
+  position:relative;
+  width:100%;
   height:min(46vh, 420px);
-  z-index:5;
   overflow:hidden;
-  pointer-events:none;
   -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 78%, rgba(0,0,0,0) 100%);
   mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 78%, rgba(0,0,0,0) 100%);
 }
 .mo-fixed-banner img{
   width:100%; height:100%; object-fit:cover; display:block;
 }
-.mo-wrap{ padding-top:520px; }
 .mo-hero{
   border-radius:10px; overflow:hidden; margin:0 0 24px;
   border:3px solid var(--wood-light); box-shadow:var(--shadow);
