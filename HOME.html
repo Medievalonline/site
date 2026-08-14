@@ -23,11 +23,26 @@ body{margin:0}
   background:
     radial-gradient(900px 500px at 15% -20%, #2a1c0f 0%, transparent 60%),
     linear-gradient(180deg, #1c130a, #14100a 100%);
-  padding:140px 14px 46px;
+  padding:80px 14px 46px;
   border-radius:12px;
 }
+/* theme.css (injected by the shell) forces .mo-wrap padding with !important,
+   which can shrink the top space to as little as ~25-72px and crowd the
+   banner. Out-specify it here (still !important, but a stronger selector
+   wins the tie) and also add margin-based spacing on the elements
+   themselves, since margin isn't touched by theme.css's override. */
+body .mo-wrap{
+  padding-top:96px !important;
+}
+.mo-page-title{
+  margin-top:8px;
+}
+.mo-hero{
+  margin-top:28px;
+}
 @media (max-width:640px){
-  .mo-wrap{padding-top:120px}
+  body .mo-wrap{padding-top:64px !important}
+  .mo-hero{margin-top:20px}
 }
 .mo-wrap img{max-width:100%; display:block}
 .mo-wrap a{color:var(--red-bright); text-decoration:underline}
