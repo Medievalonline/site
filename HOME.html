@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Medieval Online TH</title>
+<title>TEST | Medieval Online TH</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cinzel+Decorative:wght@700&family=Noto+Serif+Thai:wght@400;500;600;700&display=swap');
 :root{
@@ -23,26 +23,8 @@ body{margin:0}
   background:
     radial-gradient(900px 500px at 15% -20%, #2a1c0f 0%, transparent 60%),
     linear-gradient(180deg, #1c130a, #14100a 100%);
-  padding:80px 14px 46px;
+  padding:28px 14px 46px;
   border-radius:12px;
-}
-/* theme.css (injected by the shell) forces .mo-wrap padding with !important,
-   which can shrink the top space to as little as ~25-72px and crowd the
-   banner. Out-specify it here (still !important, but a stronger selector
-   wins the tie) and also add margin-based spacing on the elements
-   themselves, since margin isn't touched by theme.css's override. */
-body .mo-wrap{
-  padding-top:96px !important;
-}
-.mo-page-title{
-  margin-top:8px;
-}
-.mo-hero{
-  margin-top:28px;
-}
-@media (max-width:640px){
-  body .mo-wrap{padding-top:64px !important}
-  .mo-hero{margin-top:20px}
 }
 .mo-wrap img{max-width:100%; display:block}
 .mo-wrap a{color:var(--red-bright); text-decoration:underline}
@@ -58,8 +40,21 @@ body .mo-wrap{
   display:block; font-family:'Noto Serif Thai',serif; font-size:.58rem;
   letter-spacing:.3em; color:var(--gold-dim); margin-top:8px; text-transform:uppercase;
 }
+.mo-fixed-banner{
+  position:fixed; top:0; left:0; right:0;
+  height:min(34vh, 300px);
+  z-index:5;
+  overflow:hidden;
+  pointer-events:none;
+  -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 52%, rgba(0,0,0,0) 100%);
+  mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 52%, rgba(0,0,0,0) 100%);
+}
+.mo-fixed-banner img{
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+.mo-wrap{ padding-top:min(30vh, 265px); }
 .mo-hero{
-  border-radius:10px; overflow:hidden; margin:20px 0 24px;
+  border-radius:10px; overflow:hidden; margin:0 0 24px;
   border:3px solid var(--wood-light); box-shadow:var(--shadow);
   outline:1px solid var(--gold-dim); outline-offset:-6px;
   max-width:900px; margin-left:auto; margin-right:auto;
@@ -123,6 +118,7 @@ body .mo-wrap{
 <link rel="stylesheet" href="theme.css">
 </head>
 <body>
+<div class="mo-fixed-banner"><img src="banner-dragon.gif" alt=""></div>
 <div class="mo-wrap">
   <h1 class="mo-page-title">MEDIEVAL ONLINE THAI<small>Medieval Online RP &middot; Thailand</small></h1>
   <div class="mo-hero"><img src="https://lh3.googleusercontent.com/sitesv/AG8ngQXskre12INnmQRrpLmKCCHKnuUNAyJZLAYC5SGy-SZzYmtcjo1Ig-9NBcEPY3tRmFvakzl3hgmYzqSXrBFdjjHh0fEqGJBwn0-ASFlZvBQaSmZpniWTuPsyIvROIiySExwDfD4aCXLILSgDyKLuA5m_XPeVpfy8T3WSpoe0WjwH_J7ilBdUBUAAb2Nka-XPTKhMvuSowI2yQRb1WHYhZUvDOgrWI-p7PYklftBV=w1280" alt=""></div>
