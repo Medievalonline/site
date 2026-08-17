@@ -116,8 +116,12 @@
  * ================================
  * MENU / PAGE SETTINGS
  * ================================
- * enabled: true  = แสดงเมนูและเปิดหน้าได้
+ * enabled: true  = แสดงเมนูและเปิดหน้าได้ (ถ้า id ถูกใส่ใน menuStructure ด้านล่างด้วย)
  * enabled: false = ซ่อนเมนูและไม่อนุญาตให้เปิดหน้านั้น
+ *
+ * หมายเหตุ: หน้าที่ enabled:true แต่ "ไม่ได้" ใส่ไว้ใน menuStructure
+ * จะไม่มีปุ่มโชว์ในเมนูซ้ายมือ แต่ยังเปิดได้ปกติผ่านลิงก์ #id ตรง ๆ
+ * (ใช้กับหน้าอย่าง PARTNER ที่อยากให้เปิดเฉพาะตอนกดรูป sponsor)
  *
  * ในอนาคตเพิ่ม EP ใหม่ได้โดยเพิ่มรายการ เช่น:
  * {id:'ep4', label:'เนื้อเรื่อง EP.4', file:'EP4.html', enabled:false}
@@ -138,7 +142,12 @@ const pages=[
   {id:'roles',label:'บทบาท',file:'บทบาท.html',enabled:true},
 
   {id:'whitelist',label:'Whitelist Registration',file:'Whitelist Registration.html',enabled:true},
-  {id:'gifting',label:'GIFTING',file:'GIFTING.html',enabled:true}
+  {id:'gifting',label:'GIFTING',file:'GIFTING.html',enabled:true},
+
+  // หน้านี้เปิดได้ผ่านลิงก์ #partner เท่านั้น (เช่น จากรูป sponsor)
+  // enabled:true = อนุญาตให้เปิดหน้าได้ แต่ไม่ถูกใส่ใน menuStructure ด้านล่าง
+  // จึงไม่มีปุ่มขึ้นในเมนูซ้ายมือ
+  {id:'partner',label:'PARTNER',file:'PARTNER.html',enabled:true}
 ];
 
 const nav=document.getElementById('navigation');
@@ -159,6 +168,7 @@ const makeLink=(page)=>{
 };
 
 // กำหนดโครงสร้างเมนู
+// หมายเหตุ: 'partner' ตั้งใจไม่ใส่ไว้ในนี้ เพื่อไม่ให้ขึ้นปุ่มในเมนูซ้ายมือ
 const menuStructure=[
   {id:'home'},
   {id:'about'},
@@ -226,11 +236,12 @@ menuStructure.forEach(item=>{
 // SUPPORTER / SPONSOR BAR
 // ================================
 // เพิ่มผู้สนับสนุนได้จากรายการนี้
-// ใช้เฉพาะรูป + URL เท่านั้น
 // image = ชื่อไฟล์รูป หรือ URL ของรูป
-// url = เว็บไซต์ที่จะเปิดเมื่อคลิกรูป
+// url   = ปลายทางเมื่อคลิกรูป
+//         - ใส่ '#partner' เพื่อเด้งไปหน้า PARTNER ภายในเว็บนี้เอง (เปิดในแท็บเดิม)
+//         - ใส่ URL ภายนอกเต็มรูปแบบ (เช่น https://facebook.com/...) เพื่อเปิดเว็บอื่นในแท็บใหม่
 const sponsors = [
-  {image:'sponsor1.png', url:'https://www.facebook.com/kaigroomingofficial/'}
+  {image:'sponsor1.png', url:'#partner'}
 ];
 
 const sponsorList=document.getElementById('sponsorList');
@@ -251,8 +262,15 @@ function renderSponsors(){
     const card=document.createElement('a');
     card.className='sponsor-card';
     card.href=sponsor.url || '#';
-    card.target='_blank';
-    card.rel='noopener noreferrer';
+
+    // ลิงก์ภายในเว็บ (ขึ้นต้นด้วย #) ให้เปิดในแท็บเดิม
+    // ลิงก์ภายนอกยังเปิดแท็บใหม่ตามเดิม
+    const isInternal=(sponsor.url||'').startsWith('#');
+    if(!isInternal){
+      card.target='_blank';
+      card.rel='noopener noreferrer';
+    }
+
     card.setAttribute('aria-label','เปิดเว็บไซต์ผู้สนับสนุน');
 
     const img=document.createElement('img');
