@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TEST | Medieval Online TH - เนื้อเรื่อง EP 2</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cinzel+Decorative:wght@700&family=Noto+Serif+Thai:wght@400;500;600;700&display=swap');
+:root{
+  --wood-dark:#241a10; --wood:#3a2814; --wood-light:#5a3f22;
+  --gold:#c9a35c; --gold-bright:#e8c983; --gold-dim:#8a6a3a;
+  --parchment:#e9d9b3; --parchment-dark:#d8c497;
+  --ink:#3b2b18; --ink-soft:#5a4630;
+  --red:#7a2020; --red-bright:#9c2c2c;
+  --shadow: 0 10px 30px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+body{margin:0}
+.mo-wrap{
+  font-family:'Noto Serif Thai', Georgia, serif;
+  font-size:18px; line-height:1.7; color:var(--ink);
+  background:
+    radial-gradient(900px 500px at 15% -20%, #2a1c0f 0%, transparent 60%),
+    linear-gradient(180deg, #1c130a, #14100a 100%);
+  padding:28px 14px 46px;
+  border-radius:12px;
+}
+.mo-wrap img{max-width:100%; display:block}
+.mo-wrap a{color:var(--red-bright); text-decoration:underline}
+.mo-wrap a:hover{color:var(--red)}
+.mo-page-title{
+  font-family:'Noto Serif Thai','Cinzel',serif;
+  color:var(--gold-bright);
+  font-size:clamp(1.5rem,3.4vw,2.2rem);
+  text-align:center; margin:0 0 22px;
+  text-shadow:0 2px 10px rgba(0,0,0,.6);
+}
+.mo-page-title small{
+  display:block; font-family:'Noto Serif Thai',serif; font-size:.58rem;
+  letter-spacing:.3em; color:var(--gold-dim); margin-top:8px; text-transform:uppercase;
+}
+.mo-hero{
+  border-radius:10px; overflow:hidden; margin:0 0 24px;
+  border:3px solid var(--wood-light); box-shadow:var(--shadow);
+  outline:1px solid var(--gold-dim); outline-offset:-6px;
+  max-width:900px; margin-left:auto; margin-right:auto;
+}
+.mo-frame{
+  max-width:900px; margin:0 auto;
+  background:linear-gradient(180deg, var(--parchment), var(--parchment-dark));
+  border-radius:10px; padding:2px; box-shadow:var(--shadow);
+  position:relative;
+}
+.mo-frame-inner{
+  border-radius:8px; border:3px solid var(--wood-light);
+  outline:1px solid var(--gold-dim); outline-offset:-7px;
+  padding:30px clamp(16px,4vw,44px); position:relative;
+}
+.mo-corner{position:absolute; width:24px; height:24px; border:2px solid var(--gold); opacity:.85}
+.mo-corner.tl{top:7px;left:7px;border-right:none;border-bottom:none}
+.mo-corner.tr{top:7px;right:7px;border-left:none;border-bottom:none}
+.mo-corner.bl{bottom:7px;left:7px;border-right:none;border-top:none}
+.mo-corner.br{bottom:7px;right:7px;border-left:none;border-top:none}
+.mo-body h1,.mo-body h2,.mo-body h3{
+  font-family:'Noto Serif Thai',serif; color:var(--red); letter-spacing:.02em;
+  margin:1.5em 0 .55em; border-bottom:2px solid var(--gold-dim); padding-bottom:.3em;
+}
+.mo-body h1{font-size:1.4rem}
+.mo-body h2{font-size:1.22rem}
+.mo-body h3{font-size:1.05rem}
+.mo-body p{margin:0 0 1.05em}
+.mo-body ul{margin:0 0 1.1em; padding-left:1.3em}
+.mo-body li{margin:0 0 .5em}
+.mo-body strong,.mo-body b{color:var(--red)}
+.mo-body img{
+  margin:1.3em auto; border-radius:6px;
+  border:3px solid var(--wood-light);
+  outline:1px solid var(--gold-dim); outline-offset:-6px;
+  box-shadow:var(--shadow);
+}
+.mo-body .forbid{color:var(--red); font-weight:600}
+@media (max-width:640px){
+  .mo-frame-inner{padding:20px 14px}
+}
+
+/* ===== Google Drive Video : 16:9 ===== */
+.mo-video{
+  max-width:900px;
+  margin:28px auto 0;
+}
+.mo-video-frame{
+  position:relative;
+  width:100%;
+  aspect-ratio:16 / 9;
+  overflow:hidden;
+  background:#080604;
+  border:3px solid var(--wood-light);
+  border-radius:10px;
+  outline:1px solid var(--gold-dim);
+  outline-offset:-6px;
+  box-shadow:var(--shadow);
+}
+.mo-video-frame iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+  display:block;
+  background:#000;
+}
+.mo-video-title{
+  margin:0 0 10px;
+  text-align:center;
+  color:var(--gold-bright);
+  font-family:'Noto Serif Thai',serif;
+  font-size:1rem;
+  font-weight:600;
+}
+.mo-video-note{
+  margin:9px 0 0;
+  text-align:center;
+  color:var(--gold-dim);
+  font-size:.72rem;
+  line-height:1.6;
+}
+@media (max-width:640px){
+  .mo-video{margin-top:22px}
+  .mo-video-title{font-size:.9rem}
+}
+
+</style>
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+<div class="mo-wrap">
+  <h1 class="mo-page-title">เนื้อเรื่อง EP 2<small>Medieval Online RP &middot; Thailand</small></h1>
+  <div class="mo-hero"><img src="https://lh3.googleusercontent.com/sitesv/AG8ngQV_44JWha854yPxSe1CtjnEwtGj9bRfj5nhSlhlKLiLD3KeXUTzN9FJlW8UnbT2WYi8j_itAyA28ci3amh6QtbUBMoN0Dl3wRmn6NGs8bA0wUAMYtkfrO1nhNKKHdif5e_OFAM2SsGdZxOs4-8KONLIFMPP_rt2wcwhkpy0_b27rEOl2BYYSYn-BDFsDmi4pBkuEzOj6-RL7-coDvjbfGY4612gOMAAoasYGQqe=w1280" alt=""></div>
+  <div class="mo-frame">
+    <div class="mo-frame-inner">
+      <span class="mo-corner tl"></span><span class="mo-corner tr"></span>
+      <span class="mo-corner bl"></span><span class="mo-corner br"></span>
+      <div class="mo-body">
+<h2>ป้อมเกรย์วอทช์ที่ล่มสลาย (Greywatch Hold)</h2>
+<p>ป้อมเกรย์วอทช์ (Greywatch Hold) ถูกสร้างขึ้นจากหินล้วน ๆ ตัวกำแพงตัดสลับด้วยบันไดแคบและหน้าผาชัน ผู้สร้างป้อมแห่งนี้ไว้ใจในภูมิประเทศที่เป็นเนินสูง และทัศนียภาพที่มองเห็นได้ไกล มากกว่าจะไว้ใจอาวุธเหล็กกล้าที่พวกเขาตีขึ้นมาเสียอีก</p>
+<p>ทว่าความไว้วางใจนั้นเอง... คือสิ่งที่ทำลายพวกเขา</p>
+<p>พวกกองโจรเฝ้าศึกษาป้อมเกรย์วอทช์อยู่หลายเดือน พวกมันเรียนรู้พฤติกรรมการตรวจตราของยาม นับจำนวนคบไฟ สังเกตว่าบันไดไหนถูกใช้ในยามค่ำคืน และเส้นทางไหนที่ถูกละเลยเพราะคิดว่าชันเกินกว่าจะมีใครปีนได้ พวกมันมองเห็นสิ่งที่ทหารมองข้าม</p>
+<p>ในคืนที่พวกมันลงมือ ลมพัดแรงจัดจนแทบจะกระชากลมหายใจออกจากอก ร่างลึกลับร่างหนึ่งปรากฏตัวขึ้นบนสันเขาที่อยู่ห่างออกไป จุดคบไฟให้สว่างวาบขึ้นนานพอที่จะทำให้คนสังเกตเห็น ทหารยามหันไปมองด้านนอก สายตาทุกคู่จับจ้องไปที่ภัยคุกคามลวงตาชิ้นนั้น</p>
+<p>ยามคนนั้นจึงไม่มีโอกาสได้เห็น... พวกที่กำลังปีนขึ้นมาจากด้านล่าง</p>
+<p>พวกโจรปีนขึ้นมาตามหน้าผาด้านที่มืดที่สุด ซึ่งเต็มไปด้วยเศษหินร่วนและร่องรอยการซ่อมแซมเก่า ๆ พวกมันจะขยับตัวเฉพาะตอนที่เสียงลมหวีดหร้องอย่างบ้าคลั่ง และจะนิ่งสนิททันทีที่ลมสงบ นิ้วมือหลั่งเลือด หินก้อนเล็ก ๆ ร่วงหล่น แต่ไม่มีใครปริปากพูดสักคำ</p>
+<p>ทหารยามคนแรกตายตรงบันไดหอคอย เขาถูกลากเข้าไปในมุมมืดและปาดคอจนเลือดนองก่อนที่จะทันได้สูดหายใจร้องขอความช่วยเหลือ ยามคนอื่น ๆ ทยอยตายตามไป มีการใช้ดาบน้อยมาก และกว่าที่เสียงเหล็กกระทบกันจะดังขึ้น ป้อมปราการแห่งนี้ก็ตกเป็นของพวกมันไปเสียแล้ว</p>
+<p>ไฟสัญญาณเตือนภัยไม่มีโอกาสได้จุดขึ้นเลย</p>
+<p>เมื่อรุ่งสางมาถึง ป้อมเกรย์วอทช์ก็เงียบสงัดไร้เงาของทหารยาม เหลือเพียงเสียงฝีเท้าและสุ้มเสียงอันไม่คุ้นเคยดังระงมไปทั่วโถง</p>
+<p>พวกโจรยึดป้อมไว้เป็นของตัวเอง เพราะชัยภูมิของมันดีเกินไป มีประโยชน์เกินกว่าจะปล่อยผ่าน และอยู่ห่างไกลจากความช่วยเหลือเกินไป ศพของทหารยามถูกลากลงจากเนินเขาและทิ้งไว้ให้เป็นอาหารนก เลือดถูกชะล้างออกจากหินด้วยสายฝน ทว่ารอยคราบนั้นไม่เคยจางหายไปอย่างแท้จริง</p>
+<p>ข่าวคราวเริ่มแพร่สะพัดอย่างช้า ๆ และระมัดระวัง เกรย์วอทช์กลายเป็นแหล่งกบดานของผู้ที่ไม่มีบ้านให้กลับไป เหล่าคนนอกคอกพากันปีนขึ้นเนินเขาแห่งนี้และถูกทดสอบ ไม่ใช่ด้วยคำถาม... แต่ด้วย "ประโยชน์" ของพวกเขา มีทั้งหัวขโมย คนแปรพักตร์ นักลักลอบหนีภาษี และฆาตกร บางคนอยู่เพียงคืนเดียวแล้วเดินทางต่อ ขณะที่บางคนไม่เคยได้ออกไปจากที่นี่อีกเลย</p>
+<p>ที่นี่ไม่มีกฎระเบียบ มีเพียง "สัจจะในหมู่โจร" ที่พร้อมจะบิดเบี้ยวได้ทุกเมื่อตามความต้องการ</p>
+<p>หอคอยยังคงตั้งตระหง่านในสภาพรุ่งริ่ง จากบนที่สูงนั้น พวกโจรเฝ้ามองผืนแผ่นดินเหมือนอย่างที่ทหารเคยทำ แต่ด้วยสายตาที่เฉียบคมกว่าและจุดประสงค์ที่โหดเหี้ยมกว่า พวกมันสามารถมองเห็นกองลาดตระเวนได้ล่วงหน้าเป็นชั่วโมง ๆ และนักเดินทางจะถูกหมายหัวเอาไว้ ตั้งแต่ก่อนที่พวกเขาจะรู้ตัวว่าถูกมองอยู่เสียด้วยซ้ำ</p>
+<p>เกรย์วอทช์กลายเป็นสถานที่อันตรายในหลาย ๆ ด้าน ข้อพิพาทมักจบลงที่ตรงบันได ศพคนตายอันตรธานหายไปในหุบเหว และระเบียงหินต่างสะท้อนเสียงของความลับ... แทนที่จะเป็นเสียงสั่งการของทหาร</p>
+<p>ผู้คนในพื้นที่ราบลุ่มเรียนรู้ที่จะสังเกตเห็นเนินเขานี้จากระยะไกล แล้วรีบหันหลังเดินเลี่ยงไปทางอื่น</p>
+<p><em>"ถ้าเจ้าฉลาด เกรย์วอทช์ก็คือภูเขาเงินภูเขาทอง แต่ถ้าเจ้าโง่... ก็นะ มันก็แค่เนินเขาอีกลูกที่เจ้าจะไม่มีวันได้กลับออกไป"</em></p>
+<p><em>"พวกทหารสร้างเกรย์วอทช์เพื่อเฝ้ามองกองทัพ แต่พวกโจรใช้มันเพื่อนับเงินในกระเป๋า เป็นงานที่ฉลาดกว่าเยอะ ถ้าเจ้าถามข้านะ"</em></p>
+<img src="https://lh3.googleusercontent.com/sitesv/AG8ngQVspktoX4wpTRNBHamsOW1l28YENxBy6IUjJ7Mbq082oz4xJSj6ftvJgWw-8g3uImIjSm-lysRCGdXk47Tjp6zcHfide4DeBopRiLW2OefcVmp2N08JMk1Tx9j4-1947djWtOQRpkd7NLmFLavGD_G-1cnH9pIZyQgoCJMKsZm8zbmoYONYFlr7yBqACfL_PcJf9uFX0pglgC6cir4Jz6n-ZTDOxDgOEVWdnCB22nQ=w1280" alt="">
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== VIDEO EP.2 : Google Drive /preview ===== -->
+  <section class="mo-video" aria-label="วิดีโอเนื้อเรื่อง EP.2">
+    <h2 class="mo-video-title">วิดีโอเนื้อเรื่อง EP.2</h2>
+    <div class="mo-video-frame">
+      <iframe
+        id="driveVideo"
+        title="วิดีโอเนื้อเรื่อง EP.2"
+        src="https://drive.google.com/file/d/1oabJzIbHMOS_oLYdxrgKivDi1xGy-6jE/preview"
+        allow="autoplay; fullscreen; picture-in-picture"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="mo-video-note">Medieval Online RP · Thailand</div>
+  </section>
+
+
+</div>
+</body>
+</html>
