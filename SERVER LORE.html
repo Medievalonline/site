@@ -113,6 +113,9 @@ body{margin:0}
 }
 .mo-img-slot img{width:100%; height:100%; object-fit:cover}
 .mo-extra-img{margin-top:.2em}
+.mo-flipbook-link{text-align:center; padding:34px 16px}
+.mo-flipbook-link a{display:inline-block; padding:12px 24px; border:1px solid var(--gold); border-radius:6px; background:var(--red); color:var(--gold-bright); text-decoration:none; box-shadow:var(--shadow); transition:background .2s ease, transform .2s ease}
+.mo-flipbook-link a:hover{background:var(--red-bright); color:#fff; transform:translateY(-1px)}
 @media (max-width:720px){
   .mo-topic, .mo-topic:nth-of-type(even){ flex-direction:column }
   .mo-topic-media{ flex:0 0 auto; max-width:100%; }
@@ -134,7 +137,9 @@ body{margin:0}
       <span class="mo-corner tl"></span><span class="mo-corner tr"></span>
       <span class="mo-corner bl"></span><span class="mo-corner br"></span>
       <div class="mo-body">
-        <iframe allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; clipboard-write" scrolling="no" class="fp-iframe" src="https://heyzine.com/flip-book/53afaed2ff.html" style="border: 1px solid lightgray; width: 100%; height: 800px;"></iframe>
+        <div class="mo-flipbook-link">
+          <a href="https://heyzine.com/flip-book/53afaed2ff.html" target="_blank" rel="noopener noreferrer">เปิดหนังสือ SERVER LORE</a>
+        </div>
       </div>
     </div>
   </div>
