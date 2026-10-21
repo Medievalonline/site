@@ -282,45 +282,45 @@
   // ---- Gift data, pulled from each gift's own ticket page ----
   const gifts = [
     {
-      team: 'Iron Supporter', title: 'Iron Supporter', price: 0.00,
+      team: 'Iron Supporter', title: 'Iron Supporter', price: 5.00,
       // ลิงก์ปุ่ม Buy ของ Early Supporter
       buyUrl: 'https://medieval-rp-thai.tebex.store',
-      status: 'Coming Soon', statusBg: '#e0be6f', statusInk: '#241a0f',
+      status: 'On Sale', statusBg: '#e0be6f', statusInk: '#241a0f',
       image: 'image/supporter/iron-supporter.png',
       description: 'การสมัครสมาชิก Iron Supporter จะให้สิทธิ์ในการเข้าคิวเหนือกว่าผู้ที่อยู่ในรายชื่ออนุญาต (Whitelist) นี่ไม่ได้หมายความว่าคุณจะได้รับสิทธิ์เข้าเซิร์ฟเวอร์โดยอัตโนมัติ - เพียงแค่เพิ่มสิทธิ์ในการเข้าคิวของคุณเท่านั้นรายได้ทั้งหมดจะถูกนำไปลงทุนใหม่ในเซิร์ฟเวอร์: สนับสนุนสคริปต์ จ้างนักพัฒนา ปรับปรุงอย่างต่อเนื่อง และสนับสนุนทีมงานการขอคืนเงินจะยกเลิกสิทธิ์ในการเข้าคิวหากคุณทำการขอคืนเงิน เราขอสงวนสิทธิ์ในการแบนคุณออกจากชุมชน'
     },
     {
-      team: 'Silver Supporter', title: 'Silver Supporter', price: 0.00,
+      team: 'Silver Supporter', title: 'Silver Supporter', price: 10.00,
       // เปลี่ยนสถานะเป็น 'On Sale' และใส่ลิงก์จริงตรงนี้เมื่อพร้อมขาย
       buyUrl: 'https://medieval-rp-thai.tebex.store',
       // สถานะ: 'Coming Soon' = ยังไม่ขาย | 'On Sale' = พร้อมขาย
-      status: 'Coming Soon', statusBg: '#E4E1D8', statusInk: '#241a0f',
+      status: 'On Sale', statusBg: '#E4E1D8', statusInk: '#241a0f',
       image: 'image/supporter/silver-supporter.png',
       description: 'การสมัครสมาชิก Silver Supporter จะให้สิทธิ์ในการเข้าคิวมากกว่า Iron Supporter นี่ไม่ได้หมายความว่าคุณจะได้รับสิทธิ์เข้าเซิร์ฟเวอร์โดยอัตโนมัติ - เพียงแค่เพิ่มสิทธิ์ในการเข้าคิวของคุณเท่านั้น รายได้ทั้งหมดจะถูกนำไปลงทุนในเซิร์ฟเวอร์: สนับสนุนสคริปต์ จ้างนักพัฒนา ปรับปรุงอย่างต่อเนื่อง และสนับสนุนทีมงาน การขอคืนเงินจะยกเลิกสิทธิ์ในการเข้าคิว หากคุณทำการขอคืนเงิน เราขอสงวนสิทธิ์ในการแบนคุณออกจากชุมชน'
     },
     {
-      team: 'Gold Supporter', title: 'Gold Supporter', price: 0.00,
+      team: 'Gold Supporter', title: 'Gold Supporter', price: 14.99,
       buyUrl: 'https://medieval-rp-thai.tebex.store',
       // สถานะ: 'Coming Soon' = ยังไม่ขาย | 'On Sale' = พร้อมขาย
-      status: 'Coming Soon', statusBg: '#E4E1D8', statusInk: '#241a0f',
+      status: 'On Sale', statusBg: '#E4E1D8', statusInk: '#241a0f',
       image: 'image/supporter/gold-supporter.png',
       description: 'การสมัครสมาชิกระดับ Gold Supporter จะได้รับสิทธิ์ในการเข้าคิวก่อนสมาชิกระดับ Silver Supporter นี่ไม่ได้หมายความว่าคุณจะได้รับสิทธิ์เข้าเซิร์ฟเวอร์โดยอัตโนมัติ - เพียงแค่เพิ่มสิทธิ์ในการเข้าคิวของคุณเท่านั้น รายได้ทั้งหมดจะถูกนำไปลงทุนในเซิร์ฟเวอร์: สนับสนุนสคริปต์ จ้างนักพัฒนา ปรับปรุงอย่างต่อเนื่อง และสนับสนุนทีมงาน การขอคืนเงินจะยกเลิกสิทธิ์ในการเข้าคิว หากคุณทำการขอคืนเงิน เราขอสงวนสิทธิ์ในการแบนคุณออกจากชุมชน'
     },
     {
-      team: 'Platinum Supporter', title: 'Platinum Supporter', price: 0.00,
+      team: 'Platinum Supporter', title: 'Platinum Supporter', price: 25.00,
       buyUrl: 'https://medieval-rp-thai.tebex.store',
       // สถานะ: 'Coming Soon' = ยังไม่ขาย | 'On Sale' = พร้อมขาย
-      status: 'Coming Soon', statusBg: '#E4E1D8', statusInk: '#241a0f',
+      status: 'On Sale', statusBg: '#E4E1D8', statusInk: '#241a0f',
       image: 'image/supporter/platinum-supporter.png',
       description: 'การสมัครสมาชิกแบบ Platinum Supporter จะได้รับสิทธิ์ในการเข้าคิวก่อนสมาชิกแบบ Gold Supporter นี่ไม่ได้หมายความว่าคุณจะได้รับสิทธิ์เข้าเซิร์ฟเวอร์โดยอัตโนมัติ - เพียงแค่เพิ่มสิทธิ์ในการเข้าคิวของคุณเท่านั้น รายได้ทั้งหมดจะถูกนำไปลงทุนในเซิร์ฟเวอร์: สนับสนุนสคริปต์ จ้างนักพัฒนา ปรับปรุงอย่างต่อเนื่อง และสนับสนุนทีมงาน การขอคืนเงินจะยกเลิกสิทธิ์ในการเข้าคิว หากคุณทำการขอคืนเงิน เราขอสงวนสิทธิ์ในการแบนคุณออกจากชุมชน'
     },
     {
-      team: 'Diamond Supporter', title: 'Diamond Supporter', price: 0.00,
+      team: 'Diamond Supporter', title: 'Diamond Supporter', price: 35.00,
       buyUrl: 'https://medieval-rp-thai.tebex.store',
       // สถานะ: 'Coming Soon' = ยังไม่ขาย | 'On Sale' = พร้อมขาย
-      status: 'Coming Soon', statusBg: '#E4E1D8', statusInk: '#241a0f',
+      status: 'On Sale', statusBg: '#E4E1D8', statusInk: '#241a0f',
       image: 'image/supporter/diamond-supporter.png',
-      description: 'การสมัครสมาชิก Diamond Supporter จะให้สิทธิ์ในการเข้าคิวมากกว่าการสมัครสมาชิก Platinum นี่ไม่ได้หมายความว่าคุณจะได้รับสิทธิ์เข้าเซิร์ฟเวอร์โดยอัตโนมัติ - เพียงแค่เพิ่มสิทธิ์ในการเข้าคิวของคุณเท่านั้น รายได้ทั้งหมดจะถูกนำไปลงทุนในเซิร์ฟเวอร์: สนับสนุนสคริปต์ จ้างนักพัฒนา ปรับปรุงอย่างต่อเนื่อง และสนับสนุนทีมงาน การขอคืนเงินจะยกเลิกสิทธิ์ในการเข้าคิว หากคุณทำการขอคืนเงิน เราขอสงวนสิทธิ์ในการแบนคุณออกจากชุมชน'
+      description: 'การสมัครสมาชิก Diamond Supporter จะให้สิทธิ์ในการเข้าคิวมากกว่าการสมัครสมาชิก Platinum Supporter นี่ไม่ได้หมายความว่าคุณจะได้รับสิทธิ์เข้าเซิร์ฟเวอร์โดยอัตโนมัติ - เพียงแค่เพิ่มสิทธิ์ในการเข้าคิวของคุณเท่านั้น รายได้ทั้งหมดจะถูกนำไปลงทุนในเซิร์ฟเวอร์: สนับสนุนสคริปต์ จ้างนักพัฒนา ปรับปรุงอย่างต่อเนื่อง และสนับสนุนทีมงาน การขอคืนเงินจะยกเลิกสิทธิ์ในการเข้าคิว หากคุณทำการขอคืนเงิน เราขอสงวนสิทธิ์ในการแบนคุณออกจากชุมชน'
     },
   ];
 
