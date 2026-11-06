@@ -182,7 +182,8 @@ const menuStructure=[
   {id:'lore',children:['legend','ep1','ep2','ep3','ep4']},
   {id:'guide'},
   {id:'whitelist'},
-  {id:'support',children:['early-supporter','prio-whitelist','supporter','gifting']},
+  // open:true = เมนูย่อยแสดงอยู่ตั้งแต่เปิดหน้าเว็บ (ผู้ใช้กดลูกศรเพื่อปิดได้)
+  {id:'support',open:true,children:['early-supporter','prio-whitelist','supporter','gifting']},
 ];
 
 // สร้างเมนูจากการตั้งค่า enabled
@@ -204,7 +205,7 @@ menuStructure.forEach(item=>{
   if(enabledChildren.length===0) return;
 
   const group=document.createElement('div');
-  group.className='nav-group collapsed';
+  group.className=item.open ? 'nav-group' : 'nav-group collapsed';
 
   const head=document.createElement('div');
   head.className='nav-group-head';
